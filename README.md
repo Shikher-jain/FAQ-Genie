@@ -1,3 +1,5 @@
+# **FAQ Genie**
+
 This document outlines the features, setup, and usage of the **FAQ Genie**, an interactive FAQ extractor built with **Streamlit** and **Google Gemini AI**. Below is a structured summary of the key components:
 
 ## 🚀 Features
@@ -83,3 +85,4 @@ streamlit run app.py
 - Enhance fine-tuning capabilities to improve answer accuracy.
 
 This structured overview provides a clear understanding of the FAQ Genie, its setup, and its intended use.
+
