@@ -10,14 +10,14 @@ import google.generativeai as genai
 from google.generativeai import GenerativeModel
 
 
-load_dotenv()  # Loads variables from .env into environment
+load_dotenv() 
 
+# Configure Gemini 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-# ----------------- Configure Gemini -----------------
 genai.configure(api_key=GEMINI_API_KEY)
 model = GenerativeModel('gemini-1.5-flash')
 
-# ----------------- File system storage -----------------
+# File system storage 
 DATA_FILE = "faqs.json"
 if os.path.exists(DATA_FILE):
     try:
@@ -33,7 +33,6 @@ def save_faq_store():
     with open(DATA_FILE, "w", encoding="utf-8") as f:
         json.dump(faq_store, f, ensure_ascii=False, indent=2)
 
-# ----------------- Functions -----------------
 def get_text(url: str) -> str:
     """Fetch page and clean HTML, keeping <pre> text as-is."""
     try:
@@ -58,7 +57,7 @@ def get_text(url: str) -> str:
     # Remaining text
     main_text = soup.get_text(" ", strip=True)
 
-    # Combine pre blocks with main text
+    # Combine blocks
     full_text = main_text + "\n\n" + "\n\n".join(pre_blocks)
     return full_text.strip()
 
@@ -99,7 +98,7 @@ Answer:
     response = model.generate_content(prompt)
     return response.text
 
-# ----------------- Streamlit UI -----------------
+# Streamlit UI 
 st.title("FAQ Genie")
 
 url = st.text_input("Enter URL:")
@@ -128,6 +127,7 @@ if url:
                 #     st.text(json.dumps(line, ensure_ascii=False))
 
             # question = st.text_input("Ask a question about this URL:")
+
             question = st.selectbox("Select a question:", options=[line["Q"] for line in faqs])
             if question:
                 answer = ask_question(faqs, question)
