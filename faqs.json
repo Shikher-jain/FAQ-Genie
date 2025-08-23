@@ -438,5 +438,663 @@
       "Q": "Where can I get Amazon branded packaging material?",
       "A": "Your packaging requirements depend on your chosen fulfillment option . You can also search for Amazon branded packaging material on Amazon.in and select the appropriate packaging material according to your packaging requirements."
     }
+  ],
+  "https://www.postgresql.org/docs/faq/": [
+    {
+      "Q": "What platforms support PostgreSQL?",
+      "A": "Not specified in this text."
+    },
+    {
+      "Q": "How do I know what version of PostgreSQL I'm running?",
+      "A": "Not specified in this text."
+    },
+    {
+      "Q": "How do you even pronounce PostgreSQL?",
+      "A": "Not specified in this text."
+    }
+  ],
+  "https://httpd.apache.org/docs/2.4/faq/": [
+    {
+      "Q": null,
+      "A": "The FAQ has been moved to the HTTP Server Wiki."
+    }
+  ],
+  "https://www.gnu.org/gnu/gnu.html#faq": [
+    {
+      "Q": "What are some GNU/Linux distributions?",
+      "A": "See our list of GNU/Linux distributions which are entirely free software."
+    },
+    {
+      "Q": "What is the history of the GNU project?",
+      "A": "See the provided links to various documents detailing the history of GNU, including Richard Stallman's writings and articles from The New York Times."
+    },
+    {
+      "Q": "Why should the \"Linux system\" be called GNU/Linux?",
+      "A": "See Richard Stallman's explanation in \"What's in a Name?\""
+    },
+    {
+      "Q": "What is the relationship between GNU and Linux?",
+      "A": "See Richard Stallman's explanation in \"Linux and the GNU System.\""
+    },
+    {
+      "Q": "What is the GNU project?",
+      "A": "The GNU Project is a collaborative effort to create a free and open-source operating system."
+    },
+    {
+      "Q": "What is the Free Software Foundation (FSF)?",
+      "A": "The FSF is a nonprofit with a worldwide mission to promote computer user freedom and defend the rights of all software users."
+    }
+  ],
+  "https://www.php.net/manual/en/faq.general.php": [
+    {
+      "Q": "What is PHP?",
+      "A": "PHP is an HTML-embedded scripting language. Much of its syntax is borrowed from C, Java and Perl with a couple of unique PHP-specific features thrown in. The goal of the language is to allow web developers to write dynamically generated pages quickly."
+    },
+    {
+      "Q": "What does PHP stand for?",
+      "A": "PHP stands for PHP: Hypertext Preprocessor. This is a recursive acronym."
+    },
+    {
+      "Q": "What is the relation between the versions?",
+      "A": "PHP/FI 2.0 is an early and no longer supported version. PHP 3 succeeded it. PHP 8 is the current generation, using the Zend engine 4."
+    },
+    {
+      "Q": "Can I run several versions of PHP at the same time?",
+      "A": "Yes. See the INSTALL file included in the PHP source distribution."
+    },
+    {
+      "Q": "I think I found a bug! Who should I tell?",
+      "A": "Check the PHP Bug Database first. If it's not there, report it using the reporting form.  Do not email a mailing list; use the bug database for tracking."
+    }
+  ],
+  "https://www.ruby-lang.org/en/documentation/faq/": [
+    {
+      "Q": "How does Ruby stack up against…?",
+      "A": ""
+    },
+    {
+      "Q": "Installing Ruby",
+      "A": ""
+    },
+    {
+      "Q": "Variables, constants, and arguments",
+      "A": ""
+    },
+    {
+      "Q": "Iterators",
+      "A": ""
+    },
+    {
+      "Q": "Syntax",
+      "A": ""
+    },
+    {
+      "Q": "Methods",
+      "A": ""
+    },
+    {
+      "Q": "Classes and modules",
+      "A": ""
+    },
+    {
+      "Q": "Built-in libraries",
+      "A": ""
+    },
+    {
+      "Q": "Extension library",
+      "A": ""
+    },
+    {
+      "Q": "Other features",
+      "A": ""
+    }
+  ],
+  "https://kernel.org/doc/html/latest/admin-guide/bug-hunting.html#faq": [
+    {
+      "Q": "Where is the Oops message located?",
+      "A": "Normally, the Oops text is read from the kernel buffers by klogd and handed to syslogd, which writes it to a syslog file (typically /var/log/messages). On systems with systemd, it may also be stored by the journald daemon and accessed using the journalctl command. If klogd dies, you can run `dmesg > file` or `cat /proc/kmsg > file` (but you must interrupt the transfer). If the machine crashed completely, you can hand-copy the text, take a picture of the screen, or boot with a higher resolution (vga=791, needs vesafb) or serial console to capture the output on a second machine."
+    },
+    {
+      "Q": "How do I find the bug's location?",
+      "A": "To find the bug's location in the Kernel source file, you can use gdb (best with a kernel pre-compiled with debug info) or objdump.  Gdb allows you to translate the EIP value from the Oops message to a file and line number. If you don't have CONFIG_DEBUG_INFO, use the function offset from the Oops.  Objdump helps locate the code based on a hex offset from the crash output; assembler code will be shown, or C code if debug symbols are enabled.  For a call trace, find the relevant module using gdb, e.g., `gdb fs/jbd/jbd.ko`."
+    },
+    {
+      "Q": "How do I report a bug?",
+      "A": "To report a bug upstream, identify the bug tracker or mailing list using `./scripts/get_maintainer.pl --bug -f <path/to/file>`. This script points to the last developers who touched the code, the driver maintainer, the subsystem maintainer, and relevant mailing lists (e.g., linux-media@vger.kernel.org, linux-kernel@vger.kernel.org). If bug reporting URIs are listed, prefer them over email; otherwise, report to the development mailing list, copying the driver maintainer. If unsure, send it to linux-kernel@vger.kernel.org."
+    },
+    {
+      "Q": "How do I fix a bug?",
+      "A": "If you know programming, you can help by providing a solution. Once you have a fix, submit it upstream, after reading Documentation/process/submitting-patches.rst."
+    },
+    {
+      "Q": "What are the notes on Oops tracing with klogd?",
+      "A": "For full support in klogd for processing protection faults and address resolution, use at least version 1.3-pl3 of the sysklogd package. Klogd performs static translation (using System.map) and dynamic translation (for kernel modules).  A patch included with sysklogd modifies modules-2.0.0 to automatically signal klogd when modules are loaded/unloaded for seamless debugging of protection faults in kernel modules."
+    }
+  ],
+  "https://www.gnu.org/software/emacs/manual/html_node/efaq/": [
+    {
+      "Q": "What do these mean: C-h , C-M-a , RET , ESC a , etc.?",
+      "A": ""
+    },
+    {
+      "Q": "What does M-x command mean?",
+      "A": ""
+    },
+    {
+      "Q": "How do I read topic XXX in the Emacs manual?",
+      "A": ""
+    },
+    {
+      "Q": "What are src/config.h , site-lisp/default.el , etc.?",
+      "A": ""
+    },
+    {
+      "Q": "What are FSF, GNU, RMS, and GPL?",
+      "A": ""
+    },
+    {
+      "Q": "What are appropriate messages for the various Emacs mailing lists?",
+      "A": ""
+    },
+    {
+      "Q": "Where can I read archives for help-gnu-emacs and other GNU lists?",
+      "A": ""
+    },
+    {
+      "Q": "Where should I report bugs and other problems with Emacs?",
+      "A": ""
+    },
+    {
+      "Q": "How do I unsubscribe from a mailing list?",
+      "A": ""
+    },
+    {
+      "Q": "How do I contact the FSF?",
+      "A": ""
+    },
+    {
+      "Q": "I’m just starting Emacs; how do I do basic editing?",
+      "A": ""
+    },
+    {
+      "Q": "How do I find out how to do something in Emacs?",
+      "A": ""
+    },
+    {
+      "Q": "How do I get a printed copy of the Emacs manual?",
+      "A": ""
+    },
+    {
+      "Q": "Where can I get documentation on Emacs Lisp?",
+      "A": ""
+    },
+    {
+      "Q": "How do I install a piece of Texinfo documentation?",
+      "A": ""
+    },
+    {
+      "Q": "How do I print a Texinfo file?",
+      "A": ""
+    },
+    {
+      "Q": "Can I view Info files without using Emacs?",
+      "A": ""
+    },
+    {
+      "Q": "What informational files are available for Emacs?",
+      "A": ""
+    },
+    {
+      "Q": "Where can I get help in installing Emacs?",
+      "A": ""
+    },
+    {
+      "Q": "Where can I get the latest version of this FAQ?",
+      "A": ""
+    },
+    {
+      "Q": "Where does the name “Emacs” come from?",
+      "A": ""
+    },
+    {
+      "Q": "What is the latest version of Emacs?",
+      "A": ""
+    },
+    {
+      "Q": "What is different about Emacs 30?",
+      "A": ""
+    },
+    {
+      "Q": "What is different about Emacs 29?",
+      "A": ""
+    },
+    {
+      "Q": "What is different about Emacs 28?",
+      "A": ""
+    },
+    {
+      "Q": "What is different about Emacs 27?",
+      "A": ""
+    },
+    {
+      "Q": "What is different about Emacs 26?",
+      "A": ""
+    },
+    {
+      "Q": "What is different about Emacs 25?",
+      "A": ""
+    },
+    {
+      "Q": "What is different about Emacs 24?",
+      "A": ""
+    },
+    {
+      "Q": "What is different about Emacs 23?",
+      "A": ""
+    },
+    {
+      "Q": "What is different about Emacs 22?",
+      "A": ""
+    },
+    {
+      "Q": "What is different about Emacs 21?",
+      "A": ""
+    },
+    {
+      "Q": "What is different about Emacs 20?",
+      "A": ""
+    },
+    {
+      "Q": "What was XEmacs?",
+      "A": ""
+    },
+    {
+      "Q": "How do I set up an init file properly?",
+      "A": ""
+    },
+    {
+      "Q": "How do I start using Customize?",
+      "A": ""
+    },
+    {
+      "Q": "How do I get colors and syntax highlighting on a TTY?",
+      "A": ""
+    },
+    {
+      "Q": "How do I debug an init file?",
+      "A": ""
+    },
+    {
+      "Q": "How do I make Emacs display the current line (or column) number?",
+      "A": ""
+    },
+    {
+      "Q": "How can I modify the titlebar to contain the current file name?",
+      "A": ""
+    },
+    {
+      "Q": "How do I turn on abbrevs by default just in mode mymode ?",
+      "A": ""
+    },
+    {
+      "Q": "How do I make Emacs use a certain major mode for certain files?",
+      "A": ""
+    },
+    {
+      "Q": "How can I replace highlighted text with what I type?",
+      "A": ""
+    },
+    {
+      "Q": "How do I control Emacs’s case-sensitivity when searching/replacing?",
+      "A": ""
+    },
+    {
+      "Q": "How do I search for, delete, or replace unprintable (eight-bit or control) characters?",
+      "A": ""
+    },
+    {
+      "Q": "How do I input a newline character in isearch or query-replace?",
+      "A": ""
+    },
+    {
+      "Q": "How do I copy text from the kill ring into the search string?",
+      "A": ""
+    },
+    {
+      "Q": "How do I make Emacs wrap words for me?",
+      "A": ""
+    },
+    {
+      "Q": "How do I turn on auto-fill-mode by default?",
+      "A": ""
+    },
+    {
+      "Q": "How do I change load-path ?",
+      "A": ""
+    },
+    {
+      "Q": "How do I use an already running Emacs from another window?",
+      "A": ""
+    },
+    {
+      "Q": "How do I make Emacs recognize my compiler’s funny error messages?",
+      "A": ""
+    },
+    {
+      "Q": "How do I change the indentation for switch ?",
+      "A": ""
+    },
+    {
+      "Q": "How to customize indentation in C, C ++ , and Java buffers?",
+      "A": ""
+    },
+    {
+      "Q": "How do I make Emacs “typeover” or “overwrite” instead of inserting?",
+      "A": ""
+    },
+    {
+      "Q": "How do I stop Emacs from beeping on a terminal?",
+      "A": ""
+    },
+    {
+      "Q": "How do I turn down the bell volume in Emacs running under X?",
+      "A": ""
+    },
+    {
+      "Q": "How do I tell Emacs to automatically indent a new line to the indentation of the previous line?",
+      "A": ""
+    },
+    {
+      "Q": "How do I show which parenthesis matches the one I’m looking at?",
+      "A": ""
+    },
+    {
+      "Q": "In C mode, can I show just the lines that will be left after #ifdef commands are handled by the compiler?",
+      "A": ""
+    },
+    {
+      "Q": "How do I repeat a command as many times as possible?",
+      "A": ""
+    },
+    {
+      "Q": "What are the valid X resource settings (i.e., stuff in .Xdefaults)?",
+      "A": ""
+    },
+    {
+      "Q": "How do I execute (“evaluate”) a piece of Emacs Lisp code?",
+      "A": ""
+    },
+    {
+      "Q": "How do I change Emacs’s idea of the TAB character’s length?",
+      "A": ""
+    },
+    {
+      "Q": "How do I insert <some text> at the beginning of every line?",
+      "A": ""
+    },
+    {
+      "Q": "How do I make Emacs behave like this: when I go up or down, the cursor should stay in the same column even if the line is too short?",
+      "A": ""
+    },
+    {
+      "Q": "How do I tell Emacs to iconify itself?",
+      "A": ""
+    },
+    {
+      "Q": "How do I use regexps (regular expressions) in Emacs?",
+      "A": ""
+    },
+    {
+      "Q": "How do I perform a replace operation across more than one file?",
+      "A": ""
+    },
+    {
+      "Q": "Where is the documentation for etags ?",
+      "A": ""
+    },
+    {
+      "Q": "How do I disable backup files?",
+      "A": ""
+    },
+    {
+      "Q": "How do I disable auto-save-mode ?",
+      "A": ""
+    },
+    {
+      "Q": "Making Emacs write all auxiliary files somewhere else",
+      "A": ""
+    },
+    {
+      "Q": "How can I go to a certain line given its number?",
+      "A": ""
+    },
+    {
+      "Q": "How can I create or modify new pull-down menu options?",
+      "A": ""
+    },
+    {
+      "Q": "How do I delete menus and menu options?",
+      "A": ""
+    },
+    {
+      "Q": "How do I turn on syntax highlighting?",
+      "A": ""
+    },
+    {
+      "Q": "How can I force Emacs to scroll only one line when I move past the bottom of the screen?",
+      "A": ""
+    },
+    {
+      "Q": "How can I edit Windows files using Emacs?",
+      "A": ""
+    },
+    {
+      "Q": "How can I tell Emacs to fill paragraphs with a single space after each period?",
+      "A": ""
+    },
+    {
+      "Q": "Why these strange escape sequences from ls from the Shell mode?",
+      "A": ""
+    },
+    {
+      "Q": "How can I start Emacs in full screen?",
+      "A": ""
+    },
+    {
+      "Q": "How can I alleviate the limitations of the Linux console?",
+      "A": ""
+    },
+    {
+      "Q": "Does Emacs have problems with large files?",
+      "A": ""
+    },
+    {
+      "Q": "How do I get rid of ‘ ^M ’ or echoed commands in my shell buffer?",
+      "A": ""
+    },
+    {
+      "Q": "Why do I get an error message when I try to run M-x shell ?",
+      "A": ""
+    },
+    {
+      "Q": "Where is the termcap/terminfo entry for terminal type ‘ emacs ’?",
+      "A": ""
+    },
+    {
+      "Q": "Why does Emacs say ‘ Error in init file ’?",
+      "A": ""
+    },
+    {
+      "Q": "Why does Emacs ignore my X resources (my .Xdefaults file)?",
+      "A": ""
+    },
+    {
+      "Q": "Why don’t my customizations of the frame parameters work?",
+      "A": ""
+    },
+    {
+      "Q": "How do I edit a file with a ‘ $ ’ in its name?",
+      "A": ""
+    },
+    {
+      "Q": "Why does shell mode lose track of the shell’s current directory?",
+      "A": ""
+    },
+    {
+      "Q": "Are there any security risks in Emacs?",
+      "A": ""
+    },
+    {
+      "Q": "Dired says, ‘ no file on this line ’ when I try to do something.",
+      "A": ""
+    },
+    {
+      "Q": "How do I install Emacs?",
+      "A": ""
+    },
+    {
+      "Q": "Where can I get Emacs for macOS, MS Windows, etc?",
+      "A": ""
+    },
+    {
+      "Q": "What should I do if I have trouble building Emacs?",
+      "A": ""
+    },
+    {
+      "Q": "Downloading Emacs",
+      "A": ""
+    },
+    {
+      "Q": "How do I find an Emacs Lisp package that does XXX?",
+      "A": ""
+    },
+    {
+      "Q": "Where can I get Emacs Lisp packages that don’t come with Emacs?",
+      "A": ""
+    },
+    {
+      "Q": "Spell-checkers",
+      "A": ""
+    },
+    {
+      "Q": "Where can I get other up-to-date GNU stuff?",
+      "A": ""
+    },
+    {
+      "Q": "I don’t have enough disk space to install Emacs",
+      "A": ""
+    },
+    {
+      "Q": "How do I bind keys (including function keys) to commands?",
+      "A": ""
+    },
+    {
+      "Q": "Why does Emacs say ‘ Key sequence XXX uses invalid prefix characters ’?",
+      "A": ""
+    },
+    {
+      "Q": "Why doesn’t this [terminal or window-system setup] code work in my init file, but it works just fine after Emacs starts up?",
+      "A": ""
+    },
+    {
+      "Q": "How do I tell what characters or symbols my function or arrow keys emit?",
+      "A": ""
+    },
+    {
+      "Q": "How do I set the X key “translations” for Emacs?",
+      "A": ""
+    },
+    {
+      "Q": "Why does the Backspace key invoke help?",
+      "A": ""
+    },
+    {
+      "Q": "How do I swap two keys?",
+      "A": ""
+    },
+    {
+      "Q": "How do I produce C-XXX with my keyboard?",
+      "A": ""
+    },
+    {
+      "Q": "What if I don’t have a Meta key?",
+      "A": ""
+    },
+    {
+      "Q": "What if I don’t have an Escape key?",
+      "A": ""
+    },
+    {
+      "Q": "Can I make my Compose Character key behave like a Meta key?",
+      "A": ""
+    },
+    {
+      "Q": "How do I bind a combination of modifier key and function key?",
+      "A": ""
+    },
+    {
+      "Q": "Why doesn’t my Meta key work in an xterm window?",
+      "A": ""
+    },
+    {
+      "Q": "Why don’t some keys like C-. work on xterm?",
+      "A": ""
+    },
+    {
+      "Q": "How do I make Emacs display 8-bit characters?",
+      "A": ""
+    },
+    {
+      "Q": "How do I input eight-bit characters?",
+      "A": ""
+    },
+    {
+      "Q": "Where is an Emacs that can handle Semitic (right-to-left) alphabets?",
+      "A": ""
+    },
+    {
+      "Q": "How do I add fonts for use with Emacs?",
+      "A": ""
+    },
+    {
+      "Q": "How do I change the included text prefix in mail/news followups?",
+      "A": ""
+    },
+    {
+      "Q": "How do I save a copy of outgoing mail?",
+      "A": ""
+    },
+    {
+      "Q": "Why doesn’t Emacs expand my aliases when sending mail?",
+      "A": ""
+    },
+    {
+      "Q": "How can I sort the messages in my Rmail folder?",
+      "A": ""
+    },
+    {
+      "Q": "Why does Rmail need to write to /var/spool/mail ?",
+      "A": ""
+    },
+    {
+      "Q": "How can I force Rmail to reply to the sender of a message, but not the other recipients?",
+      "A": ""
+    },
+    {
+      "Q": "How do I make Emacs automatically start my mail/news reader?",
+      "A": ""
+    },
+    {
+      "Q": "How do I read news under Emacs?",
+      "A": ""
+    },
+    {
+      "Q": "How do I make Gnus faster?",
+      "A": ""
+    },
+    {
+      "Q": "How do I catch up all newsgroups in Gnus?",
+      "A": ""
+    }
   ]
 }
