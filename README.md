@@ -1,3 +1,5 @@
+
+
 # **FAQ Genie**
 
 This document outlines the features, setup, and usage of the **FAQ Genie**, an interactive FAQ extractor built with **Streamlit** and **Google Gemini AI**. Below is a structured summary of the key components:

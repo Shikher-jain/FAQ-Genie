@@ -1,1100 +1,643 @@
 {
-  "https://wiki.postgresql.org/wiki/FAQ": [
-    {
-      "Q": "What is PostgreSQL?",
-      "A": "PostgreSQL is an object-relational database system that has the features of traditional proprietary database systems with enhancements to be found in next-generation DBMS systems. PostgreSQL is free and the complete source code is available. PostgreSQL development is performed by a team of mostly volunteer developers spread throughout the world and communicating via the Internet. It is a community project and is not controlled by any company."
-    },
-    {
-      "Q": "How is it pronounced?",
-      "A": "PostgreSQL is pronounced Post-Gres-Q-L."
-    },
-    {
-      "Q": "What is Postgres?",
-      "A": "Postgres is a widely-used nickname for PostgreSQL. It was the original name of the project at Berkeley and is strongly preferred over other nicknames. If you find 'PostgreSQL' hard to pronounce, call it 'Postgres' instead."
-    },
-    {
-      "Q": "Who controls PostgreSQL?",
-      "A": "If you are looking for a PostgreSQL gatekeeper, central committee, or controlling company, give up --- there isn't one. We do have a core committee and git committers, but these groups are more for administrative purposes than control. The project is directed by the community of developers and users, which anyone can join. All you need to do is subscribe to the mailing lists and participate in the discussions."
-    },
-    {
-      "Q": "Who is the PostgreSQL Global Development Group?",
-      "A": "The \"PGDG\" is an international, unincorporated association of individuals and companies who have contributed to the PostgreSQL project.  The PostgreSQL Core Team generally act as spokespeople for the PGDG."
-    },
-    {
-      "Q": "Who is the PostgreSQL Core Team?",
-      "A": "The core team members are senior contributors to PostgreSQL who perform specific roles for the project."
-    },
-    {
-      "Q": "What about the various PostgreSQL foundations?",
-      "A": "While the PostgreSQL project utilizes non-profit corporations in the USA, Europe, Brazil and Japan for fundraising and project coordination, these entities do not own the PostgreSQL code."
-    },
-    {
-      "Q": "What is the license of PostgreSQL?",
-      "A": "PostgreSQL is distributed under a license similar to BSD and MIT. Basically, it allows users to do anything they want with the code, including reselling binaries without the source code. The only restriction is that you not hold us legally liable for problems with the software. There is also the requirement that this copyright appear in all copies of the software."
-    },
-    {
-      "Q": "What platforms does PostgreSQL support?",
-      "A": "In general, any modern Unix-compatible platform should be able to run PostgreSQL. The platforms that have received recent explicit testing can be seen in the Build farm . PostgreSQL also runs natively on Microsoft Windows NT-based operating systems like Windows XP, Vista, 7, 8, 2003, 2008, etc. Cygwin builds for Windows exist but are generally not recommended; use the native Windows builds instead."
-    },
-    {
-      "Q": "Where can I get PostgreSQL?",
-      "A": "There are binary distributions for various operating systems and platforms; see our download area . The source code can be obtained via web browser or through ftp ."
-    },
-    {
-      "Q": "What is the most recent release?",
-      "A": "The latest release of PostgreSQL is shown on the front page of our website . We typically have a major release every year, with minor releases every few months."
-    },
-    {
-      "Q": "Where can I get support?",
-      "A": "The PostgreSQL community provides assistance to many of its users via email. For best results, consider reading the guide to reporting problems before you post to make sure you include enough information for people to help you. The major IRC channel is #postgresql on Libera (irc.libera.chat)."
-    },
-    {
-      "Q": "How do I submit a bug report?",
-      "A": "Visit the PostgreSQL bug form to submit your bug report to the pgsql-bugs mailing list. For a prompt and helpful response, it is important for you to read the guide to reporting problems to make sure that you include the information required to fully understand and act on your report."
-    },
-    {
-      "Q": "How do I find out about known bugs or missing features?",
-      "A": "See our TODO list for known bugs, missing features, and future plans."
-    },
-    {
-      "Q": "A bug I'm encountering is fixed in a newer minor release of PostgreSQL, but I don't want to upgrade. Can I get a patch for just this issue?",
-      "A": "No. Nobody will make a custom patch for you so you can (say) extract a fix from 8.4.3 and apply it to 8.4.1 . That's because there should never be any need to do so. If you really feel you have to do this you will need to extract the patch from the sources yourself."
-    },
-    {
-      "Q": "I have a program that says it wants PostgreSQL x.y.1. Can I use PostgreSQL x.y.2 instead?",
-      "A": "Any program that works with a particular version, like 8.4.1, should work with any other minor version in the same major version. That means that if a program says it wants (eg) 8.4.1, you can and should install the latest in the 8.4 series instead."
-    },
-    {
-      "Q": "What documentation is available?",
-      "A": "PostgreSQL includes extensive documentation, including a large manual, manual pages, and some test examples. There are a number of PostgreSQL books available for purchase; two of them are also available online."
-    },
-    {
-      "Q": "How can I learn SQL?",
-      "A": "First, consider the PostgreSQL-specific books mentioned above. Many of our users also like The Practical SQL Handbook, Bowman, Judith S., et al., Addison-Wesley. Others like The Complete Reference SQL, Groff et al., McGraw-Hill."
-    },
-    {
-      "Q": "How do I submit a patch or join the development team?",
-      "A": "See the Developer's FAQ."
-    },
-    {
-      "Q": "How does PostgreSQL compare to other DBMSs?",
-      "A": "There are several ways of measuring software: features, performance, reliability, support, and price."
-    },
-    {
-      "Q": "Can PostgreSQL be embedded?",
-      "A": "PostgreSQL is designed as a client/server architecture, which requires separate processes for each client and server, and various helper processes. Many embedded architectures can support such requirements. However, if your embedded architecture requires the database server to run inside the application process, you cannot use Postgres and should select a lighter-weight database solution."
-    },
-    {
-      "Q": "How do I unsubscribe from the PostgreSQL email lists?",
-      "A": "The PostgreSQL Majordomo page allows subscribing or unsubscribing from any of the PostgreSQL email lists."
-    },
-    {
-      "Q": "How do I avoid receiving duplicate emails?",
-      "A": "All PostgreSQL email lists are configured so a group reply goes to the email list and the original email author. If you would prefer not to receive duplicate email from the list in cases where you already receive an email directly, check eliminatecc from the Majordomo Change Settings page."
-    },
-    {
-      "Q": "What interfaces are available for PostgreSQL?",
-      "A": "The core PostgreSQL source code includes only the C and embedded C interfaces. All other interfaces are independent projects that are downloaded separately."
-    },
-    {
-      "Q": "What tools are available for using PostgreSQL with Web pages?",
-      "A": "For Web integration, PHP is an excellent interface. For complex cases, many use the Perl and DBD::Pg with CGI.pm or mod_perl."
-    },
-    {
-      "Q": "Does PostgreSQL have a graphical user interface?",
-      "A": "There are a large number of GUI Tools that are available for PostgreSQL from both proprietary and open source developers."
-    },
-    {
-      "Q": "When installing from source code, how do I install PostgreSQL somewhere other than /usr/local/pgsql?",
-      "A": "Specify the --prefix option when running configure."
-    },
-    {
-      "Q": "I'm installing PostgreSQL on Windows or OS X and don't know the password for the postgres user",
-      "A": "Dave Page wrote a blog post explaining what the different passwords are used for, and how to overcome common problems such as resetting them."
-    },
-    {
-      "Q": "How do I control connections from other hosts?",
-      "A": "By default, PostgreSQL only allows connections from the local machine using Unix domain sockets or TCP/IP connections. Other machines will not be able to connect unless you modify listen_addresses in the postgresql.conf file, enable host-based authentication by modifying the $PGDATA/pg_hba.conf file, and restart the database server."
-    },
-    {
-      "Q": "How do I tune the database engine for better performance?",
-      "A": "There are three major areas for potential performance improvement: Query Changes, Server Configuration, and Hardware Selection."
-    },
-    {
-      "Q": "What debugging features are available?",
-      "A": "There are many log_* server configuration variables that enable printing of query and process statistics which can be very useful for debugging and performance measurements."
-    },
-    {
-      "Q": "Why do I get \"Sorry, too many clients\" when trying to connect?",
-      "A": "You have reached the default limit of 100 database sessions. See Number of database connections for advice on whether you should raise the connection limit or add a connection pooler."
-    },
-    {
-      "Q": "What is the upgrade process for PostgreSQL?",
-      "A": "See for a general discussion about upgrading, and for specific instructions on upgrading a PostgreSQL cluster."
-    },
-    {
-      "Q": "Will PostgreSQL handle recent daylight saving time changes in various countries?",
-      "A": "PostgreSQL releases 8.0 and up depend on the widely-used tzdata database for daylight savings information. To deal with a DST law change that affects you, install a new tzdata file set and restart the server."
-    },
-    {
-      "Q": "What computer hardware should I use?",
-      "A": "Because PC hardware is mostly compatible, people tend to believe that all PC hardware is of equal quality. It is not. ECC RAM, good quality hard drives/SSDs, reliable power supplies, and quality motherboards are more reliable and have better performance than less expensive hardware."
-    },
-    {
-      "Q": "How does PostgreSQL use CPU resources?",
-      "A": "The PostgreSQL server is process-based (not threaded). Each database session connects to a single PostgreSQL operating system (OS) process. Multiple sessions are automatically spread across all available CPUs by the OS."
-    },
-    {
-      "Q": "Why does PostgreSQL have so many processes, even when idle?",
-      "A": "As noted in the answer above, PostgreSQL is process based, so it starts one postgres (or postgres.exe on Windows) instance per connection. The postmaster (which accepts connections and starts new postgres instances for them) is always running. In addition, PostgreSQL generally has one or more \"helper\" processes like the stats collector, background writer, autovacuum daemon, walsender, etc, all of which show up as \"postgres\" instances in most system monitoring tools."
-    },
-    {
-      "Q": "Why does PostgreSQL use so much memory?",
-      "A": "Despite appearances, this is absolutely normal, and there's actually nowhere near as much memory being used as tools like top or the Windows process monitor say PostgreSQL is using. Tools like top and the Windows process monitor may show many postgres instances (see above), each of which appears to use a huge amount of memory."
-    },
-    {
-      "Q": "How do I SELECT only the first few rows of a query?",
-      "A": "To retrieve only a few rows, if you know at the number of rows needed at the time of the SELECT use LIMIT. If you don't know the number of rows at SELECT time, use a cursor and FETCH."
-    },
-    {
-      "Q": "How do I find out what tables, indexes, databases, and users are defined?",
-      "A": "Use the \\dt command to see tables in psql. For a complete list of commands inside psql you can use \\?. Alternatively you can read the source code for psql in file pgsql/src/bin/psql/describe.c"
-    },
-    {
-      "Q": "How do you change a column's data type?",
-      "A": "Changing the data type of a column can be done easily in 8.0 and later with ALTER TABLE ALTER COLUMN TYPE."
-    },
-    {
-      "Q": "What is the maximum size for a row, a table, and a database?",
-      "A": "These are the limits: Maximum size for a database? unlimited (32 TB databases exist)\nMaximum size for a table? 32 TB\nMaximum size for a row? 400 GB\nMaximum size for a field? 1 GB\nMaximum number of rows in a table? unlimited\nMaximum number of columns in a table? 250-1600 depending on column types\nMaximum number of indexes on a table? unlimited"
-    },
-    {
-      "Q": "How much database disk space is required to store data from a typical text file?",
-      "A": "A PostgreSQL database may require up to five times the disk space to store data from a text file."
-    },
-    {
-      "Q": "Why are my queries slow?",
-      "A": "Indexes are essential to PostgreSQL and are typically used to increase database performance. Still, indexes mean additional overhead to database systems, which means they should be applied reasonably."
-    },
-    {
-      "Q": "How do I see how the query optimizer is evaluating my query?",
-      "A": "This is done with the EXPLAIN command; see Using EXPLAIN."
-    },
-    {
-      "Q": "How do I change the sort ordering of textual data?",
-      "A": "PostgreSQL sorts textual data according to the ordering that is defined by the current locale, which is selected during initdb."
-    },
-    {
-      "Q": "How do I perform regular expression searches and case-insensitive regular expression searches?",
-      "A": "The ~ operator does regular expression matching, and ~* does case-insensitive regular expression matching. The case-insensitive variant of LIKE is called ILIKE."
-    },
-    {
-      "Q": "How do I use an index for case-insensitive searches?",
-      "A": "If you create an expression index on \"lower(col)\", it will be used: CREATE INDEX tabindex ON tab (lower(col));"
-    },
-    {
-      "Q": "In a query, how do I detect if a field is NULL?",
-      "A": "You can test the value with IS NULL or IS NOT NULL, like this: SELECT * FROM tab WHERE col IS NULL;"
-    },
-    {
-      "Q": "How do I concatenate possible NULLs?",
-      "A": "Concatenating a NULL with something else produces another NULL. If that's not what you want, you can replace the NULL(s) using COALESCE(), like this: SELECT COALESCE(col1, '') || COALESCE(col2, '') FROM tab;"
-    },
-    {
-      "Q": "How can I sort on whether a field is NULL or not?",
-      "A": "To sort by the NULL status, use an IS NULL or IS NOT NULL test in your ORDER BY clause. Things that are true will sort higher than things that are false, so the following will put NULL entries at the front of the output: SELECT * FROM tab ORDER BY (col IS NOT NULL), col;"
-    },
-    {
-      "Q": "What is the difference between the various character types?",
-      "A": "Type\tInternal Name\tNotes\nVARCHAR(n)\tvarchar\tsize specifies maximum length, no padding\nCHAR(n)\tbpchar\tblank-padded to the specified fixed length\nTEXT\ttext\tno specific upper limit on length\nBYTEA\tbytea\tvariable-length byte array (null-byte safe)\n\"char\" (with the quotes)\tchar\tone byte"
-    },
-    {
-      "Q": "How do I create a serial/auto-incrementing field?",
-      "A": "PostgreSQL supports a SERIAL data type. Actually, this isn't quite a real type. It's a shorthand for creating an integer column that is fed from a sequence."
-    },
-    {
-      "Q": "How do I get the value of a SERIAL insert?",
-      "A": "The simplest way is to retrieve the assigned SERIAL value with RETURNING. Using the example table in the previous question, it would look like this: INSERT INTO person (name) VALUES ('Blaise Pascal') RETURNING id;"
-    },
-    {
-      "Q": "Doesn't currval() lead to a race condition with other users?",
-      "A": "No. currval() returns the latest sequence value assigned by your session, independently of what is happening in other sessions."
-    },
-    {
-      "Q": "Why are there gaps in the numbering of my sequence/SERIAL column?",
-      "A": "To improve concurrency, sequence values are given out to running transactions on-demand; the sequence object is not kept locked but is immediately available for another transaction to get another sequence value."
-    },
-    {
-      "Q": "What is an OID?",
-      "A": "If a table is created WITH OIDS, each row includes an OID column that is automatically filled in during INSERT. OIDs are sequentially assigned 4-byte integers. Initially they are unique across the entire installation. However, the OID counter wraps around at 4 billion, and after that OIDs may be duplicated."
-    },
-    {
-      "Q": "What is a CTID?",
-      "A": "CTIDs identify specific physical rows by their block and offset positions within a table. They are used by index entries to point to physical rows. A logical row's CTID changes when it is updated, so the CTID cannot be used as a long-term row identifier."
-    },
-    {
-      "Q": "Why do I get the error \"ERROR: Memory exhausted in AllocSetAlloc()\"?",
-      "A": "You probably have run out of virtual memory on your system, or your kernel has a low limit for certain resources. Try this before starting the server: ulimit -d 262144 limit datasize 256m"
-    },
-    {
-      "Q": "How do I tell what PostgreSQL version I am running?",
-      "A": "Run this query: SELECT version();"
-    },
-    {
-      "Q": "Is there a way to leave an audit trail of database operations?",
-      "A": "There's nothing built-in, but it's not too difficult to build such facilities yourself."
-    },
-    {
-      "Q": "How do I create a column that will default to the current time?",
-      "A": "Use CURRENT_TIMESTAMP: CREATE TABLE test (x int, modtime TIMESTAMP DEFAULT CURRENT_TIMESTAMP );"
-    },
-    {
-      "Q": "How do I perform an outer join?",
-      "A": "PostgreSQL supports outer joins using the SQL standard syntax."
-    },
-    {
-      "Q": "How do I perform queries using multiple databases?",
-      "A": "While there is no way to directly query a database other than the current one, there are several approaches to the issue, some of which are described below."
-    },
-    {
-      "Q": "How do I return multiple rows or columns from a function?",
-      "A": "It is easy using set-returning functions."
-    },
-    {
-      "Q": "Why do I get \"relation with OID ##### does not exist\" errors when accessing temporary tables in PL/PgSQL functions?",
-      "A": "In PostgreSQL versions < 8.3, PL/PgSQL caches function scripts, and an unfortunate side effect is that if a PL/PgSQL function accesses a temporary table, and that table is later dropped and recreated, and the function called again, the function will fail because the cached function contents still point to the old temporary table."
-    },
-    {
-      "Q": "What replication solutions are available?",
-      "A": "Though \"replication\" is a single term, there are several technologies for doing replication, with advantages and disadvantages for each."
-    },
-    {
-      "Q": "Is possible to create a shared-storage postgresql server cluster?",
-      "A": "PostgreSQL does not support clustering using shared storage on a SAN, SCSI backplane, iSCSI volume, or other shared media."
-    },
-    {
-      "Q": "Why are my table and column names not recognized in my query?",
-      "A": "The most common cause of unrecognized names is the use of double-quotes around table or column names during table creation."
-    },
-    {
-      "Q": "I lost the database password. What can I do to recover it?",
-      "A": "You can't. However, you can reset it to something else."
-    },
-    {
-      "Q": "Does PostgreSQL have stored procedures?",
-      "A": "PostgreSQL doesn't. However PostgreSQL have very powerful functions and user-defined functions capabilities that can do most things that other RDBMS stored routines (procedures and functions) can do and in many cases more."
-    },
-    {
-      "Q": "Why don't BEGIN, ROLLBACK and COMMIT work in stored procedures/functions?",
-      "A": "PostgreSQL doesn't support autonomous transactions in its stored functions. Like all PostgreSQL queries, stored functions always run in a transaction and cannot operate outside a transaction."
-    },
-    {
-      "Q": "Why is \"SELECT count(*) FROM bigtable;\" slow?",
-      "A": "In 9.2 and above it generally isn't thanks to Index-only scans."
-    },
-    {
-      "Q": "Why is my query much slower when run as a prepared query?",
-      "A": "In PostgreSQL 9.2 and above this issue is rare because PostgreSQL can decide to use a generic or value-optimised plan on a per-execution basis."
-    },
-    {
-      "Q": "Why is my query much slower when run in a function than standalone?",
-      "A": "See FAQ#Why is my query much slower when run as a prepared query? Queries in PL/PgSQL functions are prepared and cached, so they execute in much the same way as if you'd PREPARE d then EXECUTE d the query yourself."
-    },
-    {
-      "Q": "Why do my strings sort incorrectly?",
-      "A": "First, make sure you are using the locale you want to be using. Use SHOW lc_collate to show the database-wide locale in effect."
-    },
-    {
-      "Q": "Why doesn't PostgreSQL report a column not found error when using the wrong name in a subquery?",
-      "A": "In the above query you will select both rows from tblA even though you are expecting only the row with id = 2 to be selected."
-    },
-    {
-      "Q": "How do I prevent regular users from seeing my trade secrets?",
-      "A": "You don't. The system catalog does not take part in the grant/revoke based privileges system; any user with a login to a database can view the contents of the system catalog."
-    },
-    {
-      "Q": "How do I encrypt my data?",
-      "A": "First, see Bruce Momjian's presentation on the general subject of data protection. Also see [GENERAL] Re: Two-way encryption as a starting point. Consider whether you need something like automatically-encrypted types."
-    }
-  ],
-  "https://sell.amazon.in/sell-online/faq": [
-    {
-      "Q": "What is Sell on Amazon or SOA?",
-      "A": "Sell on Amazon is a program that enables you to list and sell your product on Amazon.in."
-    },
-    {
-      "Q": "How does selling on Amazon.in work?",
-      "A": "Selling on Amazon.in is easy. First you list the products that you want to sell on Amazon.in marketplace. Customer sees your product and makes a purchase. You will receive a notification to ship the product. You deliver the product to the customer and confirm shipment or let Amazon fulfill the order for you through FBA or Easy ship. Amazon will deposit the funds into your bank account after deducting our fees."
-    },
-    {
-      "Q": "What products can I sell on Amazon.in?",
-      "A": "You can sell items in the following categories: Apparel, Automotive, Baby Products, Batteries, Beauty, Books, Consumables, Consumer Electronics (including Cameras and Video Games - Consoles), Digital Accessories (including Mobile Accessories, Electronics Accessories and PC Accessories), Groceries, Home, Jewelery, Kitchen, Luggage, Mobile Phones, Movies, Musical Instruments, Office and Stationary, Personal Care Appliances, Personal Computers, Pet Supplies, Software, Shoes and Handbags, Tablets, Toys, Video games (consoles and games) and Watches. Please note that certain categories are restricted and require prior approval before you can start selling."
-    },
-    {
-      "Q": "What do I need to register as a seller on Amazon.in?",
-      "A": "You will need the following information to register: Your business details Your contact details - email and phone number Basic information about your business Tax Registration Details (PAN and GST). GST Details are mandatory if you are listing taxable goods and need to be provided at the time of registration"
-    },
-    {
-      "Q": "I don’t have a website, can I still sell on Amazon.in?",
-      "A": "You don't need a website to start selling on Amazon.in marketplace. Once you complete registration, you will have access to our Seller Central platform using which you can list your products for sale on amazon.in."
-    },
-    {
-      "Q": "Who takes care of shipping?",
-      "A": "This depends on which fulfillment option you use to deliver your products. With FBA & Easy Ship, Amazon will handle the delivery of products to customers (and returns). When you choose Self-ship, you will deliver the products yourself where you can use third party courier services or your own delivery associates (for Local Shops)"
-    },
-    {
-      "Q": "Who takes care of packaging?",
-      "A": "Packaging depends on your which fulfillment option you use to deliver your products. With FBA, we take care of packaging your product in a delivery box. With Easy Ship and Self Ship, you will have to take care of packaging, and you can purchase Amazon packaging material."
-    },
-    {
-      "Q": "If I take care of packaging, where do I get the packaging material from?",
-      "A": "With Easy Ship and Self Ship, you will have to take care of packaging, and you can purchase Amazon packaging material."
-    },
-    {
-      "Q": "If I list my products using Sell on Amazon, will the customer know that he or she is purchasing from me on Amazon.in marketplace?",
-      "A": "We will clearly indicate on our product detail pages and offer listing pages that the product is sold by you and the invoice will carry your name."
-    },
-    {
-      "Q": "What is a Offer Display?",
-      "A": "Offer Display is a white box on the right side of the product detail page where customers can add products for purchase. Only seller with excellent metrics and performance can avail the Offer Display."
-    },
-    {
-      "Q": "What is Prime badge?",
-      "A": "Prime Badge is offered to  Prime Sellers who enjoy special services by subscribing to Fulfillment by  Amazon (FBA), Local Shops on Amazon, or Seller Flex. A Prime Badge helps you seamlessly store and ship your products and sell your products on Prime Day."
-    },
-    {
-      "Q": "What are the charges for selling on Amazon.in?",
-      "A": "We charge you when you get an order. Listing on Amazon.in is free. Refer to Pricing for more details."
-    },
-    {
-      "Q": "What are different fees that Amazon.in charges?",
-      "A": "Click here to know the different types of fees applicable for an Amazon Seller."
-    },
-    {
-      "Q": "How can I calculate profitability?",
-      "A": "You can calculate the approximate fees per products using our calculator here . By deducting your cost price, you can assess your profitability and which fulfillment channel is right for which of your products."
-    },
-    {
-      "Q": "Can I cancel my account?",
-      "A": "You can stop selling at any time. If you have availed any paid Amazon services, contact seller support from the bottom any Seller Central page to get them removed."
-    },
-    {
-      "Q": "How and when do I get paid?",
-      "A": "You are eligible to get paid for the order 7 days after the order is delivered. Amazon.in ensures payment for your sales (minus the Amazon Seller fees) is deposited securely into your bank account every 7 days, including your Pay on Delivery orders."
-    },
-    {
-      "Q": "How do I list my products on Amazon.in?",
-      "A": "You can use our Web-based interface to list products one at a time, or excel-based inventory files to list your products in bulk. The procedure and information required will vary depending on whether your products are already in the Amazon.in catalogue. Once you complete your registration for selling on Amazon, you will be guided on the steps needed to list your products."
-    },
-    {
-      "Q": "How can I list a product that does not have barcodes?",
-      "A": "If the product you sell does not have a barcode or a Global Trade Item Number (GTIN), you can request a GTIN exemption to sell your products on Amazon. Once we have reviewed and approved your application, you will be able to list your products."
-    },
-    {
-      "Q": "How do I manage my orders on Amazon.in?",
-      "A": "You can view your orders and manage them through “Manage Order” inside Seller Central (you will have access to sellercentral.amazon.in after your complete registration). If you are using Fulfilment by Amazon, your orders will be fulfilled and shipped by Amazon. If you are using Easy Ship, you can pack your orders and schedule pickup for our team through your Seller Central account. If you choose to store and deliver your products on your own, you need to pack and ship products to customers and then confirm to the customer about the shipment through your Seller Central account "
-    },
-    {
-      "Q": "What do I need to list my products?",
-      "A": "Based on the category and the brand you are selling, understand step-by-step process to selling on Amazon.in, top selling sub-categories, documents required to list you products, calculating fees, etc., in the category pages given below."
-    },
-    {
-      "Q": "Are there requirements for my category?",
-      "A": "To know more about different documentation requirements for different categories, click here "
-    },
-    {
-      "Q": "How can I grow my business on Amazon.in?",
-      "A": "Click here to know how you can grow your business."
-    },
-    {
-      "Q": "I want to opt for Easy Ship but I don’t have packaging material?",
-      "A": "Whether you use Amazon's delivery service (Easy Ship) or ship through 3rd party carriers, you can purchase Amazon packaging material to wrap your products. Choose from polybags, corrugated boxes and Amazon sealing tape based on your packaging needs. Once you are registered as a seller, you will find links to purchase in the Seller Central Help sections (You can also use your own packaging material)."
-    },
-    {
-      "Q": "Does Amazon.in offer protection against fraud?",
-      "A": "Yes. Amazon helps you protect against fraudulent orders placed on your products and payment fraud."
-    },
-    {
-      "Q": "Can customers leave feedback and why is customer feedback important?",
-      "A": "Yes. Customers can leave feedback. Maintaining a high feedback rating is a critical factor for success on Amazon.in. It’s the best way for customers to identify you as a trustworthy seller. Your rating appears on the Offer Listing Page and is one of the first things that customers see. In other marketplaces, we have observed that customers are more likely to purchase products from sellers with higher ratings. Your feedback rating is a key metric used by Amazon.in to measure your performance."
-    },
-    {
-      "Q": "I'm having trouble during registration. Can I get some help?",
-      "A": "If you are stuck during registration, you can get help in our Registration Guide Once you are registered Amazon seller, you can also contact seller support once you complete your registration through your Seller Central account . Once you are logged in, use the \"Help\"  button on the top right find a variety of help options. If you cannot find an answer to your question, click \"Get Support\" to get in-person support."
-    },
-    {
-      "Q": "What do I need to register as a seller on Amazon.in?",
-      "A": "You will need the following information to register: Your business details. Your contact details - email and phone number. Basic information about your business. Tax Registration Details (PAN and GST). GST Details are mandatory if you are listing taxable goods and need to be provided at the time of registration."
-    },
-    {
-      "Q": "Do I need GST number to sell on Amazon.in?",
-      "A": "Yes. If you are listing taxable goods, GST details are required to sell online. You need to provide GST number to Amazon at the time of registration. However, if you are selling only GST exempted categories, then this may not be required. Note that if you start selling any taxable goods you need to register for GST as per GST laws and provide your GST number to Amazon."
-    },
-    {
-      "Q": "Can I get help for capturing images and creating digital catalogs as per Amazon guidelines?",
-      "A": "We have 3rd party providers who are trained on Amazon’s imaging and cataloging guidelines and can assist you in creating high impact listings. They also have preferential rates and offers for Amazon sellers. You can contact them anytime through your Seller Central account once you complete registration."
-    },
-    {
-      "Q": "Where can I get Amazon branded packaging material?",
-      "A": "Your packaging requirements depend on your chosen fulfillment option . You can also search for Amazon branded packaging material on Amazon.in and select the appropriate packaging material according to your packaging requirements."
-    }
-  ],
-  "https://www.postgresql.org/docs/faq/": [
-    {
-      "Q": "What platforms support PostgreSQL?",
-      "A": "Not specified in this text."
-    },
-    {
-      "Q": "How do I know what version of PostgreSQL I'm running?",
-      "A": "Not specified in this text."
-    },
-    {
-      "Q": "How do you even pronounce PostgreSQL?",
-      "A": "Not specified in this text."
-    }
-  ],
-  "https://httpd.apache.org/docs/2.4/faq/": [
+  "https://seller.flipkart.com/faq": [
     {
       "Q": null,
-      "A": "The FAQ has been moved to the HTTP Server Wiki."
+      "A": null
     }
   ],
-  "https://www.gnu.org/gnu/gnu.html#faq": [
+  "https://www.flipkart.com/helpcentre/manageOrder/i/3": [
     {
-      "Q": "What are some GNU/Linux distributions?",
-      "A": "See our list of GNU/Linux distributions which are entirely free software."
-    },
-    {
-      "Q": "What is the history of the GNU project?",
-      "A": "See the provided links to various documents detailing the history of GNU, including Richard Stallman's writings and articles from The New York Times."
-    },
-    {
-      "Q": "Why should the \"Linux system\" be called GNU/Linux?",
-      "A": "See Richard Stallman's explanation in \"What's in a Name?\""
-    },
-    {
-      "Q": "What is the relationship between GNU and Linux?",
-      "A": "See Richard Stallman's explanation in \"Linux and the GNU System.\""
-    },
-    {
-      "Q": "What is the GNU project?",
-      "A": "The GNU Project is a collaborative effort to create a free and open-source operating system."
-    },
-    {
-      "Q": "What is the Free Software Foundation (FSF)?",
-      "A": "The FSF is a nonprofit with a worldwide mission to promote computer user freedom and defend the rights of all software users."
+      "Q": "How do I get help with my recent orders and issues?",
+      "A": "Log in to get help with your recent orders and issues."
     }
   ],
-  "https://www.php.net/manual/en/faq.general.php": [
+  "https://en.wikipedia.org/wiki/Wikipedia:FAQ": [
     {
-      "Q": "What is PHP?",
-      "A": "PHP is an HTML-embedded scripting language. Much of its syntax is borrowed from C, Java and Perl with a couple of unique PHP-specific features thrown in. The goal of the language is to allow web developers to write dynamically generated pages quickly."
+      "Q": "Main FAQ",
+      "A": "Main FAQ about using and contributing to Wikipedia."
     },
     {
-      "Q": "What does PHP stand for?",
-      "A": "PHP stands for PHP: Hypertext Preprocessor. This is a recursive acronym."
+      "Q": "Overview FAQ",
+      "A": "General questions about the Wikipedia project."
     },
     {
-      "Q": "What is the relation between the versions?",
-      "A": "PHP/FI 2.0 is an early and no longer supported version. PHP 3 succeeded it. PHP 8 is the current generation, using the Zend engine 4."
+      "Q": "Readers' FAQ",
+      "A": "Finding, reading and using Wikipedia material."
     },
     {
-      "Q": "Can I run several versions of PHP at the same time?",
-      "A": "Yes. See the INSTALL file included in the PHP source distribution."
+      "Q": "Schools' and Teachers' FAQ",
+      "A": "Using Wikipedia in the classroom."
     },
     {
-      "Q": "I think I found a bug! Who should I tell?",
-      "A": "Check the PHP Bug Database first. If it's not there, report it using the reporting form.  Do not email a mailing list; use the bug database for tracking."
+      "Q": "Contributing FAQ",
+      "A": "Why you might want to contribute to the Wikipedia project, and how you can do it."
+    },
+    {
+      "Q": "Editing FAQ",
+      "A": "The ins and outs of creating and editing Wikipedia pages."
+    },
+    {
+      "Q": "Administration FAQ",
+      "A": "What an administrator (or \"sysop\") is, sysop status, and server administration."
+    },
+    {
+      "Q": "Blocks FAQ",
+      "A": "Information about blocks."
+    },
+    {
+      "Q": "Technical FAQ",
+      "A": "Questions about Wikipedia software and hardware and their limitations."
+    },
+    {
+      "Q": "Problems FAQ",
+      "A": "Questions relating to past or present difficulties and criticism."
+    },
+    {
+      "Q": "Article subjects' FAQ",
+      "A": "Questions relating to an article about you, someone you represent, or your organization or business"
+    },
+    {
+      "Q": "Copyright FAQ",
+      "A": "Questions pertaining to copyright issues."
+    },
+    {
+      "Q": "Template FAQ",
+      "A": "Questions about templates."
+    },
+    {
+      "Q": "Miscellaneous FAQ",
+      "A": "Everything else."
+    },
+    {
+      "Q": "Forking FAQ",
+      "A": "How to download Wikipedia content and/or software and/or create derivative works of Wikipedia."
+    },
+    {
+      "Q": "Categorization FAQ",
+      "A": "Editor's guide to the Category feature."
+    },
+    {
+      "Q": "Categories FAQ",
+      "A": "Readers' guide to categories."
+    },
+    {
+      "Q": "Main Page FAQ",
+      "A": "How it works and other common answers."
+    },
+    {
+      "Q": "ClueBot NG FAQ",
+      "A": "Specific to ClueBot NG"
     }
   ],
-  "https://www.ruby-lang.org/en/documentation/faq/": [
+  "https://en.wikipedia.org/wiki/Wikipedia:FAQ/Main": [
     {
-      "Q": "How does Ruby stack up against…?",
-      "A": ""
+      "Q": "How do I edit a page?",
+      "A": "Editing most Wikipedia pages is easy! Simply click the \"Edit\" tab at the top of a Wikipedia page or on a section-edit link. This will take you to a new page with a text box containing the editable text of the page you were viewing. In this box, you can type in the text that you want to add using wiki markup to format text and add other elements like images and tables. If you don't want to learn the wiki markup syntax, you can enable the VisualEditor, which allows you to edit pages in a user-friendly way. When you have finished editing, you should write a short edit summary in the small field below the edit-box describing your changes."
     },
     {
-      "Q": "Installing Ruby",
-      "A": ""
+      "Q": "How do I create a new page?",
+      "A": "You have to be logged in to your Wikipedia account to create a new article. You can register here. For creating a new article, see Help:Your first article and Wikipedia:Article development. You may also wish to try the Article wizard. For creating a new page in your userspace, see How do I create a user subpage?, or use the Article wizard, which has an option for that. Make sure that the new page is backed up by reliable sources and that its subject is notable."
     },
     {
-      "Q": "Variables, constants, and arguments",
-      "A": ""
+      "Q": "Why was my article deleted?",
+      "A": "If you look at the address where your page was, it should have a red box above it that shows the user who deleted it (in the form \"Username (talk | contribs)\") and their reason (which appears in italics). If the reason is not helpful, or you disagree with it, you can click on the \"talk\" link to send them a message and ask."
     },
     {
-      "Q": "Iterators",
-      "A": ""
+      "Q": "How do I change the name of an article?",
+      "A": "You can move the article using the \"move\" link under \"Tools\" in the sidebar. In order to do this on most pages, you must have an account that has reached autoconfirmed status, meaning it must be at least four days old and have made at least ten edits. If you are not an autoconfirmed user, if the move is controversial, or if the page you wish to rename is move-protected, visit Wikipedia:Requested moves. You may also request to have an admin grant you confirmed status if you are a legitimate alternative account of an autoconfirmed user."
     },
     {
-      "Q": "Syntax",
-      "A": ""
+      "Q": "How do I change my username/delete my account?",
+      "A": "To change your username, see Wikipedia:Changing username. An account cannot be deleted. If an account was deleted, the edits made by the user could not be properly attributed. You can, however, courtesy vanish, and request that your userpage be deleted by adding the code {{db-user}} to the top of the page."
     },
     {
-      "Q": "Methods",
-      "A": ""
+      "Q": "How do I cite Wikipedia?",
+      "A": "See Wikipedia:Citing Wikipedia for details."
     },
     {
-      "Q": "Classes and modules",
-      "A": ""
+      "Q": "Who writes the articles on Wikipedia?",
+      "A": "Almost all articles on Wikipedia are written by multiple editors, not just one. If you click on the \"View history\" tab at the top of an article, a list of all the contributors to the article will be displayed, along with the time when their contributions were made. A more comprehensive history can be accessed in the \"Page statistics\" which can be found in the External tools of the \"View history\" tab. See Who writes Wikipedia for further details."
     },
     {
-      "Q": "Built-in libraries",
-      "A": ""
+      "Q": "Can I rely on Wikipedia for advice on medical, legal, financial, safety, and other critical issues?",
+      "A": "In a word, no. If you need specific advice (for example, medical, legal, financial or risk management), please seek a professional who is licensed or knowledgeable in that area. Wikipedia cannot guarantee the validity of the information found here. The content of any given article may recently have been changed, vandalized or altered by someone whose opinion does not correspond with the state of knowledge in the relevant fields. See Wikipedia:General disclaimer for more cautionary information."
     },
     {
-      "Q": "Extension library",
-      "A": ""
+      "Q": "Who owns Wikipedia?",
+      "A": "See who owns Wikipedia for details."
     },
     {
-      "Q": "Other features",
-      "A": ""
+      "Q": "Why am I having trouble logging in?",
+      "A": "See Help:Logging in for details."
+    },
+    {
+      "Q": "How can I contact Wikipedia?",
+      "A": "See Wikipedia:Contact us for information."
     }
   ],
-  "https://kernel.org/doc/html/latest/admin-guide/bug-hunting.html#faq": [
+  "https://www.myntra.com/faqs": [],
+  "https://cwiki.apache.org/confluence/display/httpd/FAQ": [
     {
-      "Q": "Where is the Oops message located?",
-      "A": "Normally, the Oops text is read from the kernel buffers by klogd and handed to syslogd, which writes it to a syslog file (typically /var/log/messages). On systems with systemd, it may also be stored by the journald daemon and accessed using the journalctl command. If klogd dies, you can run `dmesg > file` or `cat /proc/kmsg > file` (but you must interrupt the transfer). If the machine crashed completely, you can hand-copy the text, take a picture of the screen, or boot with a higher resolution (vga=791, needs vesafb) or serial console to capture the output on a second machine."
+      "Q": "What is Apache?",
+      "A": "The Apache HTTP Server is a powerful, flexible, HTTP/1.1 compliant web server implements the latest protocols, including HTTP/1.1 (RFC2616) is highly configurable and extensible with third-party modules can be customised by writing 'modules' using the Apache module API provides full source code and comes with an unrestrictive license runs on Windows 2000, Netware 5.x and above, OS/2, and most versions of Unix, as well as several other operating systems is actively being developed encourages user feedback through new ideas, bug reports and patches implements many frequently requested features, including: DBM databases as well, as relational databases and LDAP for authentication allows you to easily set up password-protected pages with enormous numbers of authorized users, without bogging down the server. Customized responses to errors and problems Allows you to set up files, or even CGI scripts, which are returned by the server in response to errors and problems, e.g. setup  a script to intercept 500 Server Errors and perform on-the-fly diagnostics for both users and yourself. Multiple DirectoryIndex directives - Allows you to say DirectoryIndex index.html index.cgi, which instructs the server to either send back index.html or run index.cgi when a directory URL is requested, whichever it finds in the directory. Unlimited flexible URL rewriting and aliasing - Apache has no fixed limit on the numbers of Aliases and Redirects which may be declared in the config files. In addition, a powerful rewriting engine can be used to solve most URL manipulation problems. Content negotiation - i.e. the ability to automatically serve clients of varying sophistication and HTML level compliance, with documents which offer the best representation of information that the client is capable of accepting. Virtual Hosts - Allows the server to distinguish between requests made to different IP addresses or names (mapped to the same machine). Apache also offers dynamically configurable mass-virtual hosting. Configurable Reliable Piped Logs - You can configure Apache to generate logs in the format that you want. In addition, on most Unix architectures, Apache can send log files to a pipe, allowing for log rotation, hit filtering, real-time splitting of multiple vhosts into separate logs, and asynchronous DNS resolving on the fly."
     },
     {
-      "Q": "How do I find the bug's location?",
-      "A": "To find the bug's location in the Kernel source file, you can use gdb (best with a kernel pre-compiled with debug info) or objdump.  Gdb allows you to translate the EIP value from the Oops message to a file and line number. If you don't have CONFIG_DEBUG_INFO, use the function offset from the Oops.  Objdump helps locate the code based on a hex offset from the crash output; assembler code will be shown, or C code if debug symbols are enabled.  For a call trace, find the relevant module using gdb, e.g., `gdb fs/jbd/jbd.ko`."
+      "Q": "How and why was Apache HTTP Server created?",
+      "A": "The About Apache document explains how the Apache project evolved from its beginnings as an outgrowth of the NCSA httpd project to its current status as one of the fastest, most efficient, and most functional web servers in existence."
     },
     {
-      "Q": "How do I report a bug?",
-      "A": "To report a bug upstream, identify the bug tracker or mailing list using `./scripts/get_maintainer.pl --bug -f <path/to/file>`. This script points to the last developers who touched the code, the driver maintainer, the subsystem maintainer, and relevant mailing lists (e.g., linux-media@vger.kernel.org, linux-kernel@vger.kernel.org). If bug reporting URIs are listed, prefer them over email; otherwise, report to the development mailing list, copying the driver maintainer. If unsure, send it to linux-kernel@vger.kernel.org."
+      "Q": "Why the name \"Apache\"?",
+      "A": "The name 'Apache' was chosen from respect for the Native American Indian tribe of Apache (Indé), well-known for their superior skills in warfare strategy and their inexhaustible endurance. For more information on the Apache Nation, we suggest searching Google, or AllTheWeb . Secondarily, and more popularly (though incorrectly) accepted, it's a considered cute name which stuck. Apache is \"A PAtCHy server\". It was based on some existing code and a series of \"patch files\". These days Apache as such means much more. It's first and foremost the Apache Software Foundation, under which there are dozens of projects."
     },
     {
-      "Q": "How do I fix a bug?",
-      "A": "If you know programming, you can help by providing a solution. Once you have a fix, submit it upstream, after reading Documentation/process/submitting-patches.rst."
+      "Q": "How does Apache httpd performance compare to other servers?",
+      "A": "Benchmarks tend to be a measure of configuration competance, rather than of server quality. That is, if you're an expert in IIS, you can probably get it to run faster than you can get Apache to run. You can therefore find comparisions of various HTTP servers that prove that each is faster than all the others. We tend to take server performance benchmarks with a grain of salt."
     },
     {
-      "Q": "What are the notes on Oops tracing with klogd?",
-      "A": "For full support in klogd for processing protection faults and address resolution, use at least version 1.3-pl3 of the sysklogd package. Klogd performs static translation (using System.map) and dynamic translation (for kernel modules).  A patch included with sysklogd modifies modules-2.0.0 to automatically signal klogd when modules are loaded/unloaded for seamless debugging of protection faults in kernel modules."
+      "Q": "How thoroughly tested is Apache httpd?",
+      "A": "Apache is run on over 120 million Internet servers (as of April 2010) (Source, Netcraft ). It has been tested thoroughly by both developers and users. The Apache HTTP Server Project Management Committee maintains rigorous standards before releasing new versions of their server, and our server runs without a hitch on over one half of all WWW servers available on the Internet. When bugs do show up, we release patches and new versions as soon as they are available."
+    },
+    {
+      "Q": "What are the future plans for Apache httpd?",
+      "A": "to continue to be an \"open source\" no-charge-for-use HTTP server, to keep up with advances in HTTP protocol and web developments in general, to collect suggestions for fixes/improvements from its users, to respond to needs of large volume providers as well as occasional users."
+    },
+    {
+      "Q": "Whom do I contact for support?",
+      "A": "See http://httpd.apache.org/support.html ."
+    },
+    {
+      "Q": "Is there any more information available on Apache httpd?",
+      "A": "Indeed there is. See the main Apache web server site . There are also many books about the Apache HTTP Server available."
+    },
+    {
+      "Q": "Where can I get Apache httpd?",
+      "A": "You can find out how to download the source for Apache at the main Apache web server site ."
+    },
+    {
+      "Q": "Why isn't there a current binary for my platform?",
+      "A": "The occasional availability of binaries for one platform or another at http://httpd.apache.org/dist/httpd/binaries/ has been a source of confusion for the user community, particularly the large subset which uses the Windows platform and is not able to build httpd and prerequisites themselves. Producing binaries for general use is not part of the httpd release process.  By policy the group does not formally release binaries and is in no position to ensure their consistent availability.  (No mechanisms exist to review, test, and approve them – we can only formally release source). If you are unable to build a binary for your platform, consult the Users mailing list for recommendations. Some sources for Windows binaries are documented at Using Apache HTTP Server on Microsoft Windows ."
+    },
+    {
+      "Q": "May I use the Apache logo on my product or Web site?",
+      "A": "You may NOT use any original artwork from the Apache Software Foundation, nor make or use modified versions of such artwork, except under the conditions in the Apache Trademark Policy document."
+    },
+    {
+      "Q": "\"Why can't I ...? Why won't ... work?\" What to do in case of problems",
+      "A": "If you are having trouble with your Apache server software, you should take the following steps: Check the errorlog! Check the FAQ! Check the Apache bug database Ask in a user support group If all else fails, report the problem in the bug database If your problem involves the server crashing and generating a core dump, please include a backtrace (if possible). As an example, # cd ServerRoot\n# dbx httpd core\n(dbx) where (Substitute the appropriate locations for your ServerRoot and your httpd and core files. You may have to use gdb instead of dbx.)"
+    },
+    {
+      "Q": "How do I submit a patch to Apache httpd?",
+      "A": "Detailed information for submitting bug reports and patches may be found in the Apache HTTP Server developer documentation ."
+    },
+    {
+      "Q": "Why has Apache stolen my favourite site's Internet address?",
+      "A": "The simple answer is: \"It hasn't.\" This misconception is usually caused by the site in question having migrated to the Apache Web server software, but not having migrated the site's content yet. When Apache is installed, the default page that gets installed tells the Webmaster the installation was successful. The expectation is that this default page will be replaced with the site's real content. If it doesn't, complain to the Webmaster, not to the Apache project – we just make the software and aren't responsible for what people do (or don't do) with it."
+    },
+    {
+      "Q": "Why am I getting spam mail from the Apache site?",
+      "A": "The short answer is: \"You aren't.\" Usually when someone thinks the Apache site is originating spam, it's because they've traced the spam to a Web site, and the Web site says it's using Apache. See the previous FAQ entry for more details on this phenomenon. No marketing spam originates from the Apache site. The only mail that comes from the site goes only to addresses that have been requested to receive the mail."
+    },
+    {
+      "Q": "May I include the Apache software on a CD or other package I'm distributing?",
+      "A": "The detailed answer to this question can be found in the Apache license, which is included in the Apache distribution in the file LICENSE. You can also find it on the Web at http://www.apache.org/licenses/ ."
+    },
+    {
+      "Q": "What's the best hardware/operating system/... How do I get the most out of my Apache Web server?",
+      "A": "Check out the performance tuning page ."
+    },
+    {
+      "Q": "What are \"regular expressions\"?",
+      "A": "Regular expressions are a way of describing a pattern - for example, \"all the words that begin with the letter A\" or \"every 10-digit phone number\" or even \"Every sentence with two commas in it, and no capital letter Q\". Regular expressions (aka \"regex\"s) are useful in Apache because they let you apply certain attributes against collections of files or resources in very flexible ways - for example, all .gif and .jpg files under any \"images\" directory could be written as /images/.*(jpg|gif)$ . Note that httpd doesn't need the delimiting // so as to avoid \"toothpicks\" when matching URIs or paths, like: //foo/bar/?/ The best overview around is probably the one which comes with Perl .  Apache's regular expressions use PCRE - Perl Compatible Regular Expressions ."
+    },
+    {
+      "Q": "Why do I get an error about an undefined reference to \"+inet_ntoa\" or other +inet_* symbols?",
+      "A": "If you have installed BIND-8 then this is normally due to a conflict between your include files and your libraries. BIND-8 installs its include files and libraries /usr/local/include/ and /usr/local/lib/, while the resolver that comes with your system is probably installed in /usr/include/ and /usr/lib/. If your system uses the header files in /usr/local/include/ before those in /usr/include/ but you do not use the new resolver library, then the two versions will conflict. To resolve this, you can either make sure you use the include files and libraries that came with your system or make sure to use the new include files and libraries. Adding -lbind to the EXTRA_LDFLAGS line in your Configuration file, then re-running Configure, should resolve the problem. (Apache versions 1.2.* and earlier use EXTRA_LFLAGS instead.) Note:As of BIND 8.1.1, the bind libraries and files are installed under /usr/local/bind by default, so you should not run into this problem. Should you want to use the bind resolvers you'll have to add the following to the respective lines: EXTRA_CFLAGS=-I/usr/local/bind/include EXTRA_LDFLAGS=-L/usr/local/bind/lib EXTRA_LIBS=-lbind"
+    },
+    {
+      "Q": "I get an error about \"configure failed for srclib/apr\"",
+      "A": "This only applies to Apache 2.4 and later If you are building with the --with-included-apr option, you also need to download the *-deps tarball that matches the main release that you are trying to build, and extract it into the same directory."
+    },
+    {
+      "Q": "Why won't Apache compile with my system's cc?",
+      "A": "If the server won't compile on your system, it is probably due to one of the following causes: The Configure script doesn't recognize your system environment. Your system's C compiler is garbage. Your include files may be confused. Your operating system or compiler may be out of revision. The Apache Group tests the ability to build the server on many different platforms. Unfortunately, we can't test all of the OS platforms there are. If you have verified that none of the above issues is the cause of your problem, and it hasn't been reported before, please submit a problem report. Be sure to include complete details, such as the compiler & OS versions and exact error messages."
+    },
+    {
+      "Q": "Why do I get complaints about redefinition of \"struct iovec\" when compiling under Linux?",
+      "A": "This is a conflict between your C library includes and your kernel includes. You need to make sure that the versions of both are matched properly. There are two workarounds, either one will solve the problem: Remove the definition of struct iovec from your C library includes. It is located in /usr/include/sys/uio.h. Or, Add -DNO_WRITEV to the EXTRA_CFLAGS line in your Configuration and reconfigure/rebuild. This hurts performance and should only be used as a last resort."
+    },
+    {
+      "Q": "I'm using gcc and I get some compilation errors, what is wrong?",
+      "A": "GCC parses your system header files and produces a modified subset which it uses for compiling. This behavior ties GCC tightly to the version of your operating system. So, for example, if you were running IRIX 5.3 when you built GCC and then upgrade to IRIX 6.2 later, you will have to rebuild GCC. Similarly for Solaris 2.4, 2.5, or 2.5.1 when you upgrade to 2.6. Sometimes you can type \"gcc -v\" and it will tell you the version of the operating system it was built against. If you fail to do this, then it is very likely that Apache will fail to build. One of the most common errors is with readv, writev, or uio.h. This is not a bug with Apache. You will need to re-install GCC."
+    },
+    {
+      "Q": "Why do I get \"setgid: Invalid argument\" at startup?",
+      "A": "Your Group directive (probably in conf/httpd.conf) needs to name a group that actually exists in the /etc/group file (or your system's equivalent). This problem is also frequently seen when a negative number is used in the Group directive (e.g., \"Group #-1\"). Using a group name – not group number – found in your system's group database should solve this problem in all cases."
+    },
+    {
+      "Q": "Why am I getting \"httpd: could not set socket option TCP_NODELAY\" in my error log?",
+      "A": "This message almost always indicates that the client disconnected before Apache reached the point of calling setsockopt() for the connection. It shouldn't occur for more than about 1% of the requests your server handles, and it's advisory only in any case."
+    },
+    {
+      "Q": "Why am I getting \"connection reset by peer\" in my error log?",
+      "A": "This is a normal message and nothing about which to be alarmed. It simply means that the client canceled the connection before it had been completely set up - such as by the end-user pressing the \"Stop\" button. People's patience being what it is, sites with response-time problems or slow network links may experience this more than high capacity ones or those with large pipes to the network."
+    },
+    {
+      "Q": "The errorlog says Apache dumped core, but where's the dump file?",
+      "A": "The error log message about dumped core includes the directory where the dump file should be located. However, many Unixes do not allow a process that has called setuid() to dump core for security reasons ('Is this still a problem?'); the typical Apache setup has the server started as root to bind to port 80, after which it uses setuid() to change UIDs to a non-privileged user to serve requests. Dealing with this is extremely operating system-specific, and may require rebuilding your system kernel. Consult your operating system documentation or vendor for more information about whether your system does this and how to bypass it. If there is a documented way of bypassing it, it is recommended that you bypass it only for the httpd server process if possible. The canonical location for Apache's core-dump files is the ServerRoot directory. The location can be set via the CoreDumpDirectory directive to a different directory. Make sure that this directory is writable by the user the server runs as (as opposed to the user the server is started as)."
+    },
+    {
+      "Q": "When I run it under Linux I get \"shmget: function not found\", what should I do?",
+      "A": "Your kernel has been built without SysV IPC support. You will have to rebuild the kernel with that support enabled (it's under the \"General Setup\" submenu). Documentation for kernel building is beyond the scope of this FAQ; you should consult the Kernel HOWTO, or the documentation provided with your distribution, or a Linux newsgroup/mailing list. As a last-resort workaround, you can comment out the #define USE_SHMGET_SCOREBOARD definition in the LINUX section of src/conf.h and rebuild the server (prior to 1.3b4, simply removing #define HAVE_SHMGET would have sufficed). This will produce a server which is slower and less reliable."
+    },
+    {
+      "Q": "Server hangs, or fails to start, and/or error log fills with \"fcntl: F_SETLKW: No record locks available\" or similar messages",
+      "A": "These are symptoms of a file locking problem, which usually means that the server is trying to use a synchronization file on an NFS filesystem. Because of its parallel-operation model, the Apache Web server needs to provide some form of synchronization when accessing certain resources. One of these synchronization methods involves taking out locks on a file, which means that the filesystem whereon the lockfile resides must support locking. In many cases this means it can't be kept on an NFS-mounted filesystem. To cause the Web server to work around the NFS locking limitations, include a line such as the following in your server configuration files: LockFile /var/run/apache-lock The directory should not be generally writable (e.g., don't use /var/tmp). See the LockFile documentation for more information."
+    },
+    {
+      "Q": "When I try to start Apache from a DOS window, I get a message like \"Cannot determine host name. Use ServerName directive to set it manually.\" What does this mean?",
+      "A": "It means what it says; the Apache software can't determine the hostname of your system. Edit your conf\\httpd.conf file, look for the string \"ServerName\", and make sure there's an uncommented directive such as ServerName localhost or ServerName www.foo.com in the file. Correct it if there one there with wrong information, or add one if you don't already have one. Also, make sure that your Windows system has DNS enabled. See the TCP/IP setup component of the Networking or Internet Options control panel. After verifying that DNS is enabled and that you have a valid hostname in your ServerName directive, try to start the server again."
+    },
+    {
+      "Q": "When I try to start Apache on Windows, I get a message like \"System error 1067 has occurred. The process terminated unexpectedly.\" What does this mean?",
+      "A": "This message means that the Web server was unable to start correctly for one reason or another. To find out why, execute the following commands in a DOS window: c: cd \"\\Program Files\\Apache Group\\Apache\" apache (If you don't get the prompt back, hit Control-C to cause Apache to exit.) The error you see will probably be one of those preceding this question in the FAQ. First check the Windows NT Event Log for Application errors using the Windows NT/2000 Event Viewer program. Any errors that occur prior to opening the Apache error log will be stored here, if Apache is run as a Service on NT or 2000. As with any error, also check your Apache error log."
+    },
+    {
+      "Q": "On a SuSE Linux system, I try and configure access control using basic authentication. Although I follow the example exactly, authentication fails, and an error message \"admin: not a valid FDN: ....\" is logged.",
+      "A": "In the SuSE distribution, additional 3rd party authentication modules have been added and activated by default. These modules interfere with the Apache standard modules and cause Basic authentication to fail. Our recommendation is to comment all those modules in /etc/httpd/suse_addmodule.conf and /etc/httpd/suse_loadmodule.conf which are not actually required for running your server."
+    },
+    {
+      "Q": "Why am I getting server restart messages periodically, when I did not restart the server?",
+      "A": "Problem: You are noticing restart messages in your error log, periodically, when you know you did not restart the server yourself: [Thu Jun  6 04:02:01 2002] [notice] SIGHUP received.  Attempting to restart\n  [Thu Jun  6 04:02:02 2002] [notice] Apache configured -- resuming normal operations Check your cron jobs to see when/if your server logs are being rotated. Compare the time of rotation to the error message time. If they are the same, you can somewhat safely assume that the restart is due to your server logs being rotated."
+    },
+    {
+      "Q": "Why am I getting \"module module-name is not compatible with this version of Apache\" messages in my error log?",
+      "A": "Module Magic Number (MMN) is a constant defined in Apache source that is associated with binary compatibility of modules. It is changed when internal Apache structures, function calls and other significant parts of API change in such a way that binary compatibility cannot be guaranteed any more. On MMN change, all third party modules have to be at least recompiled, sometimes even slightly changed in order to work with the new version of Apache. If you're getting the above error messages, contact the vendor of the module for the new binary, or compile it if you have access to the source code."
+    },
+    {
+      "Q": "I've downloaded a module from a source I trust, but my LoadModule line is a syntax error?",
+      "A": "Have you checked for simple errors like a typo, or an incorrect path to the module? Another reason you may be unable to load a module is if it relies on libraries (Unix-family .so or Windows .dll) that are not loaded into the server.  Such libraries can be loaded using the LoadFile directive, which must appear before your LoadModule line in the configuration.  The module's provider should document any such dependencies.  There's a particular Gotcha on Windows: httpd: Syntax error on line nn of C:/IBM/HTTP/conf/httpd.conf: Cannot load C:/IBM/HTTP/modules/mod_foo.so into server: The specified module could not be found."
+    },
+    {
+      "Q": "Googling the error message tells us there's a missing library, but there doesn't appear to be, and the identical configuration works on one computer but fails with this message on another.  What gives?",
+      "A": "This error may happen because you need to install the Windows C Runtime Libraries on the target machine.  Note that this doesn't mean you need to load them explicitly into HTTPD, just install them on the host machine!  This is likely to affect users of IBM's httpd trying to load modules not supplied by IBM, and might arise in other circumstances where the server and the module are compiled using different build options."
+    },
+    {
+      "Q": "Why can't I run more than <n> virtual hosts?",
+      "A": "You are probably running into resource limitations in your operating system. The most common limitation is the per-process limit on file descriptors, which is almost always the cause of problems seen when adding virtual hosts. Apache often does not give an intuitive error message because it is normally some library routine (such as gethostbyname()) which needs file descriptors and doesn't complain intelligibly when it can't get them. Each log file requires a file descriptor, which means that if you are using separate access and error logs for each virtual host, each virtual host needs two file descriptors. Each Listen directive also needs a file descriptor. Typical values for <n> that we've seen are in the neighborhood of 1024 or 2048. When the server bumps into the file descriptor limit, it may dump core with a SIGSEGV, it might just hang, or it may limp along and you'll see (possibly meaningful) errors in the error log. One common problem that occurs when you run into a file descriptor limit is that CGI scripts stop being executed properly. As to what you can do about this: Reduce the number of Listen directives Reduce the number of log files Increase the number of file descriptors available to the server \"Don't do that\" - try to run with fewer virtual hosts Spread your operation across multiple server processes (using Listen for example, but see the first point) and/or ports. Since this is an operating-system limitation, there's not much else available in the way of solutions."
+    },
+    {
+      "Q": "Why doesn't my ErrorDocument 401 work?",
+      "A": "You need to use it with a URL in the form \"/foo/bar\" and not one with a method and hostname such as \"http://host/foo/bar\". See the ErrorDocument documentation for details. This was incorrectly documented in the past."
+    },
+    {
+      "Q": "Why does Apache send a cookie on every response?",
+      "A": "Apache does not automatically send a cookie on every response, unless you have re-compiled it with the mod_usertrack module, and specifically enabled it with the CookieTracking directive. This module may help track users, and uses cookies to do this. If you are not using the data generated by mod_usertrack, do not compile it into Apache."
+    },
+    {
+      "Q": "Why don't my cookies work?",
+      "A": "Apache httpd passes on your Set-Cookie header, like any other header. If cookies do not work it will be because your script does not work properly or your browser does not use cookies or is not set-up to accept them."
+    },
+    {
+      "Q": "Why does accessing directories only work when I include the trailing \"/\" (e.g., http://foo.domain.com/~user/ ) but not when I omit it (e.g., http://foo.domain.com/~user)?",
+      "A": "When you access a directory without a trailing \"/\", Apache needs to send what is called a redirect to the client to tell it to add the trailing slash. If it did not do so, relative URLs would not work properly. When it sends the redirect, it needs to know the name of the server so that it can include it in the redirect. There are two ways for Apache to find this out; either it can guess, or you can tell it. If your DNS is configured correctly, it can normally guess without any problems. If it is not, however, then you need to tell it. Add a ServerName directive to the config file to tell it what the domain name of the server is. The other thing that can occasionally cause this symptom is a misunderstanding of the Alias directive, resulting in an alias working with a trailing slash, and not without one. The Alias directive is very literal, and aliases what you tell it to. Consider the following example: Alias /example/ /home/www/example/ The above directive creates an alias for URLs starting with /example/, but does not alias URLs starting with /example. That is to say, a URL such as http://servername.com/example/ will get the desired content, but a URL such as http://servername.com/example will result in a \"file not found\" error. The following Alias, on the other hand, will work for both cases: Alias /example /home/www/example"
+    },
+    {
+      "Q": "Why doesn't mod_info list any directives?",
+      "A": "The mod_info module allows you to use a Web browser to see how your server is configured. Among the information it displays is the list of modules and their configuration directives. The \"current\" values for the directives are not necessarily those of the running server; they are extracted from the configuration files themselves at the time of the request. If the files have been changed since the server was last reloaded, the display will not match the values actively in use. If the files and the path to the files are not readable by the user as which the server is running (see the User directive), then mod_info cannot read them in order to list their values. An entry will be made in the error log in this event, however."
+    },
+    {
+      "Q": "My .htaccess files are being ignored.",
+      "A": "This is almost always due to your AllowOverride directive being set incorrectly for the directory in question. If it is set to None then .htaccess files will not even be looked for. That is a good thing. If you have access to edit the httpd.conf, you should not use .htaccess files, ever. If your customers do need support for .htaccess, make sure that AllowOverride is set to something sensible (i.e.: Not All). Be certain it covers the directory you are trying to use the .htaccess file in. This is normally accomplished by ensuring it is inside the proper Directory container. You can tell if this is your problem by adding nonsense text to your .htaccess file and reloading the page.  If you do not get a server error, then Apache httpd is not reading your .htaccess file."
+    },
+    {
+      "Q": "Why do I get a \"Forbidden\" message whenever I try to access a particular directory?",
+      "A": "This message is generally caused because either The underlying file system permissions do not allow the User/Group under which Apache is running to access the necessary files; or The Apache configuration has some access restrictions in place which forbid access to the files. You can determine which case applies to your situation by checking the error log. In the case where file system permission are at fault, see (13) Permission Denied for more info."
+    },
+    {
+      "Q": "Why do my files appear correctly in Internet Explorer, but show up as source or trigger a save window with Netscape; or, Why doesn't Internet Explorer render my text/plain document correctly?",
+      "A": "MS Internet Explorer (MSIE) and Netscape handle mime type detection in different ways, and therefore will display the document differently. In particular, IE sometimes relies on the file extension or the contents of the file to determine the mime type. This can happen when the server specifies a mime type of application/octet-stream or text/plain. This behavior violates the the HTTP standard and makes it impossible to deliver plain text documents to MSIE clients in some cases. More details are available on MSIE's mime type detection behavior in an MSDN article and a note by Alan J. Flavell. The best you can do as a server administrator is to accurately configure the mime type of your documents by editing the mime.types file or using an AddType directive in the Apache configuration files. In some cases, you may be able to fool MSIE into rendering text/plain documents correctly by assuring they have a .txt filename extension, but this will not work if MSIE thinks the content looks like another file type."
+    },
+    {
+      "Q": "My site is accessible under many different hostnames; how do I redirect clients so that they see only a single name?",
+      "A": "Many sites map a variety of hostnames to the same content. For example, www.example.com, example.com and www.example.net may all refer to the same site. It is best to make sure that, regardless of the name clients use to access the site, they will be redirected to a single, canonical hostname. This makes the site easier to maintain and assures that there will be only one version of the site in proxy caches and search engines. There are two techniques to implement canonical hostnames: Use mod_rewrite as described in the \"Canonical Hostnames\" section of the URL Rewriting Guide. See http://httpd.apache.org/docs/current/rewrite/remapping.html#canonicalhost . Use name-based virtual hosting: NameVirtualHost *:80\n<VirtualHost *:80>\n  ServerName www.example.net\n  ServerAlias example.com\n  Redirect permanent / http://www.example.com/\n</VirtualHost>\n\n<VirtualHost *:80>\n  ServerName www.example.com\n  DocumentRoot /usr/local/apache/htdocs\n</VirtualHost>"
+    },
+    {
+      "Q": "Why can I access my website from the server or from my local network, but I can't access it from elsewhere on the Internet?",
+      "A": "There are many possible reasons for this, and almost all of them are related to the configuration of your network, not the configuration of the Apache HTTP Server. One of the most common problems is that a firewall blocks access to the default HTTP port 80. In particular, many consumer ISPs block access to this port. You can see if this is the case by changing any Port and Listen directives in httpd.conf to use port 8000 and then request your site using http://yourhost.example.com:8000/ . (Of course, a very restrictive firewall may block this port as well.)"
+    },
+    {
+      "Q": "How do I turn automatic directory listings on or off?",
+      "A": "If a client requests a URL that designates a directory and the directory does not contain a filename that matches the DirectoryIndex directive, then mod_autoindex can be configured to present a listing of the directory contents. To turn on automatic directory indexing, find the Options directive that applies to the directory and add the Indexes keyword. For example: <Directory /path/to/directory>\n   Options +Indexes\n</Directory> To turn off automatic directory indexing, remove the Indexes keyword from the appropriate Options line. To turn off directory listing for a particular subdirectory, you can use Options -Indexes. For example: <Directory /path/to/directory>\n   Options -Indexes\n</Directory>"
+    },
+    {
+      "Q": "Why do my Options directives not have the desired effect?",
+      "A": "Directives placed in the configuration files are applied in a very particular order, as described by How Directory, Location, and Files sections work . In addition, each Options directive has the effect of resetting the options to none before adding the specified options (unless only \"+\" and \"-\" options are used). The consequence is that Options set in the main server or virtual host context (outside any directory, location, or files section) will usually have no effect, because they are overridden by more specific Options directives. For example, in the following <Directory /usr/local/apache/htdocs>\n    Options Indexes\n</Directory>\nOptions Includes ExecCGI Includes and ExecCGI will be off in the /usr/local/apache/htdocs directory. You can usually avoid problems by either finding the Options directive that already applies to a specific directory and changing it, or by putting your Options directive inside the most specific possible <Directory> section."
+    },
+    {
+      "Q": "How can I change the information that Apache returns about itself in the headers?",
+      "A": "When a client connects to Apache, part of the information returned in the headers is the name \"Apache\" Additional information that can be sent is the version number, such as \"2.2.17\", the operating system, and a list of non-standard modules you have installed. For example: Server: Apache/2.2.17 (Unix) mod_perl/1.26 Frequently, people want to remove this information, under the mistaken understanding that this will make the system more secure. This is probably not the case, as the same exploits will likely be attempted regardless of the header information you provide. There are, however, two answers to this question: the correct answer, and the answer that you are probably looking for. The correct answer to this question is that you should use the ServerTokens directive to alter the quantity of information which is passed in the headers. Setting this directive to Prod will pass the least possible amount of information: Server: Apache The answer you are probably looking for is how to make Apache lie about what what it is, ie send something like: Server: Bob's Happy HTTPd Server In order to do this, you will need to modify the Apache source code and rebuild Apache. This is not advised, as it is almost certain not to provide you with the added security you think that you are gaining. The exact method of doing this is left as an exercise for the reader, as we are not keen on helping you do something that is intrinsically a bad idea."
     }
   ],
-  "https://www.gnu.org/software/emacs/manual/html_node/efaq/": [
+  "https://aws.amazon.com/vpc/faqs/#topic-0": [
     {
-      "Q": "What do these mean: C-h , C-M-a , RET , ESC a , etc.?",
-      "A": ""
+      "Q": "What is Amazon Virtual Private Cloud?",
+      "A": "Amazon VPC lets you provision a logically isolated section of the Amazon Web Services (AWS) cloud where you can launch AWS resources in a virtual network that you define. You have complete control over your virtual networking environment, including selection of your own IP address ranges, creation of subnets, and configuration of route tables and network gateways. You can also create a hardware Virtual Private Network (VPN) connection between your corporate datacenter and your VPC and leverage the AWS cloud as an extension of your corporate datacenter. You can easily customize the network configuration for your Amazon VPC. For example, you can create a public-facing subnet for your web servers that have access to the Internet, and place your backend systems such as databases or application servers in a private-facing subnet with no Internet access. You can leverage multiple layers of security, including security groups and network access control lists, to help control access to Amazon EC2 instances in each subnet."
     },
     {
-      "Q": "What does M-x command mean?",
-      "A": ""
+      "Q": "What are the components of Amazon VPC?",
+      "A": "Amazon VPC comprises a variety of objects that will be familiar to customers with existing networks: A Virtual Private Cloud: A logically isolated virtual network in the AWS cloud. You define a VPC’s IP address space from ranges you select. Subnet: A segment of a VPC’s IP address range where you can place groups of isolated resources. Internet Gateway: The Amazon VPC side of a connection to the public Internet. NAT Gateway: A highly available, managed Network Address Translation (NAT) service for your resources in a private subnet to access the Internet. Virtual private gateway: The Amazon VPC side of a VPN connection. Peering Connection: A peering connection enables you to route traffic via private IP addresses between two peered VPCs. VPC Endpoints: Enables private connectivity to services hosted in AWS, from within your VPC without using an Internet Gateway, VPN, Network Address Translation (NAT) devices, or firewall proxies. Egress-only Internet Gateway: A stateful gateway to provide egress only access for IPv6 traffic from the VPC to the Internet."
     },
     {
-      "Q": "How do I read topic XXX in the Emacs manual?",
-      "A": ""
+      "Q": "Why should I use Amazon VPC?",
+      "A": "Amazon VPC enables you to build a virtual network in the AWS cloud - no VPNs, hardware, or physical datacenters required. You can define your own network space, and control how your network and the Amazon EC2 resources inside your network are exposed to the Internet. You can also leverage the enhanced security options in Amazon VPC to provide more granular access to and from the Amazon EC2 instances in your virtual network."
     },
     {
-      "Q": "What are src/config.h , site-lisp/default.el , etc.?",
-      "A": ""
+      "Q": "How do I get started with Amazon VPC?",
+      "A": "Your AWS resources are automatically provisioned in a ready-to-use default VPC. You can choose to create additional VPCs by going to the Amazon VPC page in the AWS Management Console and selecting \"Start VPC Wizard\". You’ll be presented with four basic options for network architectures. After selecting an option, you can modify the size and IP address range of the VPC and its subnets. If you select an option with Hardware VPN Access, you will need to specify the IP address of the VPN hardware on your network. You can modify the VPC to add or remove secondary IP ranges and gateways, or add more subnets to IP ranges. The four options are: Amazon VPC with a single public subnet only Amazon VPC with public and private subnets Amazon VPC with public and private subnets and AWS Site-to-Site VPN access Amazon VPC with a private subnet only and AWS Site-to-Site VPN access"
     },
     {
-      "Q": "What are FSF, GNU, RMS, and GPL?",
-      "A": ""
+      "Q": "What are the different types of VPC endpoints available on Amazon VPC?",
+      "A": "VPC endpoints enable you to privately connect your VPC to services hosted on AWS without requiring an Internet gateway, a NAT device, VPN, or firewall proxies. Endpoints are horizontally scalable and highly available virtual devices that allow communication between instances in your VPC and AWS services. Amazon VPC offers two different types of endpoints: gateway type endpoints and interface type endpoints. Gateway type endpoints are available only for AWS services including S3 and DynamoDB. These endpoints will add an entry to your route table you selected and route the traffic to the supported services through Amazon’s private network. Interface type endpoints provide private connectivity to services powered by PrivateLink, being AWS services, your own services or SaaS solutions, and supports connectivity over Direct Connect. More AWS and SaaS solutions will be supported by these endpoints in the future. Please refer to VPC Pricing for the price of interface type endpoints."
     },
     {
-      "Q": "What are appropriate messages for the various Emacs mailing lists?",
-      "A": ""
+      "Q": "How will I be charged and billed for my use of Amazon VPC?",
+      "A": "There are no additional charges for creating and using the VPC itself. Usage charges for other Amazon Web Services, including Amazon EC2, still apply at published rates for those resources, including data transfer charges. If you connect your VPC to your corporate datacenter using the optional hardware VPN connection, pricing is per VPN connection-hour (the amount of time you have a VPN connection in the \"available\" state.) Partial hours are billed as full hours. Data transferred over VPN connections will be charged at standard AWS Data Transfer rates. For VPC-VPN pricing information, please visit the pricing section of the Amazon VPC product page ."
     },
     {
-      "Q": "Where can I read archives for help-gnu-emacs and other GNU lists?",
-      "A": ""
+      "Q": "What usage charges will I incur if I use other AWS services, such as Amazon S3, from Amazon EC2 instances in my VPC?",
+      "A": "Usage charges for other Amazon Web Services, including Amazon EC2, still apply at published rates for those resources. Data transfer charges are not incurred when accessing Amazon Web Services, such as Amazon S3, via your VPC’s Internet gateway. If you access AWS resources via your VPN connection, you will incur Internet data transfer charges."
     },
     {
-      "Q": "Where should I report bugs and other problems with Emacs?",
-      "A": ""
+      "Q": "What are the connectivity options for my Amazon VPC?",
+      "A": "You may connect your Amazon VPC to: The internet (via an internet gateway) Your corporate data center using an AWS Site-to-Site VPN connection (via the virtual private gateway) Both the internet and your corporate data center (utilizing both an internet gateway and a virtual private gateway) Other AWS services (via internet gateway, NAT, virtual private gateway, or VPC endpoints) Other Amazon VPCs (via VPC peering connections)"
     },
     {
-      "Q": "How do I unsubscribe from a mailing list?",
-      "A": ""
+      "Q": "How do I connect my VPC to the Internet?",
+      "A": "Amazon VPC supports the creation of an Internet gateway. This gateway enables Amazon EC2 instances in the VPC to directly access the Internet. You can also use an Egress-only internet gateway which is a stateful gateway to provide egress only access for IPv6 traffic from the VPC to the Internet."
     },
     {
-      "Q": "How do I contact the FSF?",
-      "A": ""
+      "Q": "Are there any bandwidth limitations for Internet gateways? Do I need to be concerned about its availability? Can it be a single point of failure?",
+      "A": "No. An Internet gateway is horizontally-scaled, redundant, and highly available. It imposes no bandwidth constraints."
     },
     {
-      "Q": "I’m just starting Emacs; how do I do basic editing?",
-      "A": ""
+      "Q": "How do instances in a VPC access the Internet?",
+      "A": "You can use public IP addresses, including Elastic IP addresses (EIPs) and IPv6 Global Unique addresses (GUA), to give instances in the VPC the ability to both directly communicate outbound to the internet and to receive unsolicited inbound traffic from the internet (e.g., web servers). You can also use the solutions in the next question."
     },
     {
-      "Q": "How do I find out how to do something in Emacs?",
-      "A": ""
+      "Q": "When is an IP address considered a Public IP address?",
+      "A": "Any IP address that is assigned to an instance or a service hosted in a VPC that can be accessed over the internet is considered a public IP address. Only public IPv4 addresses, including Elastic IP addresses (EIPs) and IPv6 GUA can be routable on the internet. To do so, you would need to first connect the VPC to the internet and then update the route table to make them reachable to/from the internet."
     },
     {
-      "Q": "How do I get a printed copy of the Emacs manual?",
-      "A": ""
+      "Q": "How do instances without public IP addresses access the Internet?",
+      "A": "Instances without public IP addresses can access the Internet in one of two ways: Instances without public IP addresses can route their traffic through a NAT gateway or a NAT instance to access the Internet. These instances use the public IP address of the NAT gateway or NAT instance to traverse the Internet. The NAT gateway or NAT instance allows outbound communication but doesn’t allow machines on the Internet to initiate a connection to the privately addressed instances. For VPCs with a hardware VPN connection or Direct Connect connection, instances can route their Internet traffic down the virtual private gateway to your existing datacenter. From there, it can access the Internet via your existing egress points and network security/monitoring devices."
     },
     {
-      "Q": "Where can I get documentation on Emacs Lisp?",
-      "A": ""
+      "Q": "Can I connect to my VPC using a software VPN?",
+      "A": "Yes. You may use a third-party software VPN to create a site to site or remote access VPN connection with your VPC via the Internet gateway."
     },
     {
-      "Q": "How do I install a piece of Texinfo documentation?",
-      "A": ""
+      "Q": "Does traffic go over the internet when two instances communicate using public IP addresses, or when instances communicate with a public AWS service endpoint?",
+      "A": "No. When using public IP addresses, all communication between instances and services hosted in AWS use AWS's private network. Packets that originate from the AWS network with a destination on the AWS network stay on the AWS global network, except traffic to or from AWS China Regions. In addition, all data flowing across the AWS global network that interconnects our data centers and Regions is automatically encrypted at the physical layer before it leaves our secured facilities. Additional encryption layers exist as well; for example, all VPC cross-region peering traffic, and customer or service-to-service Transport Layer Security (TLS) connections."
     },
     {
-      "Q": "How do I print a Texinfo file?",
-      "A": ""
+      "Q": "How does an AWS Site-to-Site VPN connection work with Amazon VPC?",
+      "A": "An AWS Site-to-Site VPN connection connects your VPC to your datacenter. Amazon supports Internet Protocol Security (IPSec) VPN connections. Data transferred between your VPC and datacenter routes over an encrypted VPN connection to help maintain the confidentiality and integrity of data in transit. An internet gateway is not required to establish an AWS Site-to-Site VPN connection."
     },
     {
-      "Q": "Can I view Info files without using Emacs?",
-      "A": ""
+      "Q": "What IP address ranges can I use within my Amazon VPC?",
+      "A": "You can use any IPv4 address range, including RFC 1918 or publicly routable IP ranges, for the primary CIDR block. For the secondary CIDR blocks, certain restrictions apply. Publicly routable IP blocks are only reachable via the Virtual Private Gateway and cannot be accessed over the Internet through the Internet gateway. AWS does not advertise customer-owned IP address blocks to the Internet. You can allocate up to 5 Amazon-provided or BYOIP IPv6 GUA CIDR blocks to a VPC by calling the relevant API or via the AWS Management Console."
     },
     {
-      "Q": "What informational files are available for Emacs?",
-      "A": ""
+      "Q": "How do I assign IP address ranges to Amazon VPCs?",
+      "A": "You assign a single Classless Internet Domain Routing (CIDR) IP address range as the primary CIDR block when you create a VPC and can add up to four (4) secondary CIDR blocks after creation of the VPC. Subnets within a VPC are addressed from these CIDR ranges by you. Please note that while you can create multiple VPCs with overlapping IP address ranges, doing so will prohibit you from connecting these VPCs to a common home network via the hardware VPN connection. For this reason we recommend using non-overlapping IP address ranges. You can allocate up to 5 Amazon-provided or BYOIP IPv6 CIDR blocks to your VPC."
     },
     {
-      "Q": "Where can I get help in installing Emacs?",
-      "A": ""
+      "Q": "What IP address ranges are assigned to a default Amazon VPC?",
+      "A": "Default VPCs are assigned a CIDR range of 172.31.0.0/16. Default subnets within a default VPC are assigned /20 netblocks within the VPC CIDR range."
     },
     {
-      "Q": "Where can I get the latest version of this FAQ?",
-      "A": ""
+      "Q": "Can I use my IP addresses in VPC and access them over the Internet?",
+      "A": "Yes, you can bring your public IPv4 addresses and IPv6 GUA addresses into AWS VPC and statically allocate them to subnets and EC2 instances. To access these addresses over the Internet, you will have to advertise them to the Internet from your on-premises network. You will also have to route the traffic over these addresses between your VPC and on-premises network using AWS DX or AWS VPN connection. You can route the traffic from your VPC using the Virtual Private Gateway. Similarly, you can route the traffic from your on-premises network back to your VPC using your routers."
     },
     {
-      "Q": "Where does the name “Emacs” come from?",
-      "A": ""
+      "Q": "How large of a VPC can I create?",
+      "A": "Currently, Amazon VPC supports five (5) IP address ranges, one (1) primary and four (4) secondary for IPv4. Each of these ranges can be between /28 (in CIDR notation) and /16 in size. The IP address ranges of your VPC should not overlap with the IP address ranges of your existing network. For IPv6, the VPC is a fixed size of /56 (in CIDR notation). A VPC can have both IPv4 and IPv6 CIDR blocks associated to it."
     },
     {
-      "Q": "What is the latest version of Emacs?",
-      "A": ""
+      "Q": "Can I change the size of a VPC?",
+      "A": "Yes. You can expand your existing VPC by adding four (4) secondary IPv4 IP ranges (CIDRs) to your VPC. You can shrink your VPC by deleting the secondary CIDR blocks you have added to your VPC. Likewise, you can add up to five (5) additionally IPv6 IP ranges (CIDRs) to your VPC. You can shrink your VPC by deleting these additional ranges."
     },
     {
-      "Q": "What is different about Emacs 30?",
-      "A": ""
+      "Q": "How many subnets can I create per VPC?",
+      "A": "Currently you can create 200 subnets per VPC. If you would like to create more, please submit a case at the support center ."
     },
     {
-      "Q": "What is different about Emacs 29?",
-      "A": ""
+      "Q": "Is there a limit on how large or small a subnet can be?",
+      "A": "The minimum size of a subnet is a /28 (or 14 IP addresses.) for IPv4. Subnets cannot be larger than the VPC in which they are created. For IPv6, the subnet size is fixed to be a /64. Only one IPv6 CIDR block can be allocated to a subnet."
     },
     {
-      "Q": "What is different about Emacs 28?",
-      "A": ""
+      "Q": "Can I use all the IP addresses that I assign to a subnet?",
+      "A": "No. Amazon reserves the first four (4) IP addresses and the last one (1) IP address of every subnet for IP networking purposes."
     },
     {
-      "Q": "What is different about Emacs 27?",
-      "A": ""
+      "Q": "How do I assign private IP addresses to Amazon EC2 instances within a VPC?",
+      "A": "When you launch an Amazon EC2 instance within a subnet that is not IPv6-only, you may optionally specify the primary private IPv4 address for the instance. If you do not specify the primary private IPv4 address, AWS automatically addresses it from the IPv4 address range you assign to that subnet. You can assign secondary private IPv4 addresses when you launch an instance, when you create an Elastic Network Interface, or any time after the instance has been launched or the interface has been created. In case you launch an Amazon EC2 instance within an IPv6-only subnet, AWS automatically addresses it from the Amazon-provided IPv6 GUA CIDR of that subnet. The instance’s IPv6 GUA will remain private unless you make them reachable to/from the internet with the right security group, NACL, and route table configuration."
     },
     {
-      "Q": "What is different about Emacs 26?",
-      "A": ""
+      "Q": "Can I change the private IP addresses of an Amazon EC2 instance while it is running and/or stopped within a VPC?",
+      "A": "For an instance launched in an IPv4 or dual-stack subnet, the primary private IPv4 address is retained for the instance's or interface's lifetime. Secondary private IPv4 addresses can be assigned, unassigned, or moved between interfaces or instances at any time. For an instance launched in an IPv6-only subnet, the assigned IPv6 GUA which is also the first IP address on the instance's primary network interface can be modified by associating a new IPv6 GUA and removing the existing IPv6 GUA at any time."
     },
     {
-      "Q": "What is different about Emacs 25?",
-      "A": ""
+      "Q": "If an Amazon EC2 instance is stopped within a VPC, can I launch another instance with the same IP address in the same VPC?",
+      "A": "No. An IPv4 address assigned to a running instance can only be used again by another instance once that original running instance is in a “terminated” state. However, the IPv6 GUA assigned to a running instance can be used again by another instance after it is removed from the first instance."
     },
     {
-      "Q": "What is different about Emacs 24?",
-      "A": ""
+      "Q": "Can I assign IP addresses for multiple instances simultaneously?",
+      "A": "No. You can specify the IP address of one instance at a time when launching the instance."
     },
     {
-      "Q": "What is different about Emacs 23?",
-      "A": ""
+      "Q": "Can I assign any IP address to an instance?",
+      "A": "You can assign any IP address to your instance as long as it is: Part of the associated subnet's IP address range Not reserved by Amazon for IP networking purposes Not currently assigned to another interface"
     },
     {
-      "Q": "What is different about Emacs 22?",
-      "A": ""
+      "Q": "Can I assign multiple IP addresses to an instance?",
+      "A": "Yes. You can assign one or more secondary private IP addresses to an Elastic Network Interface or an EC2 instance in Amazon VPC. The number of secondary private IP addresses you can assign depends on the instance type. See EC2 User Guide for more information on the number of secondary private IP addresses that can be assigned per instance type."
     },
     {
-      "Q": "What is different about Emacs 21?",
-      "A": ""
+      "Q": "Can I assign one or more Elastic IP (EIP) addresses to VPC-based Amazon EC2 instances?",
+      "A": "Yes, however, the EIP addresses will only be reachable from the Internet (not over the VPN connection). Each EIP address must be associated with a unique private IP address on the instance. EIP addresses should only be used on instances in subnets configured to route their traffic directly to the Internet gateway. EIPs cannot be used on instances in subnets configured to use a NAT gateway or a NAT instance to access the Internet. This is applicable only for IPv4. Amazon VPCs do not support EIPs for IPv6 at this time."
     },
     {
-      "Q": "What is different about Emacs 20?",
-      "A": ""
+      "Q": "What is the Bring Your Own IP feature?",
+      "A": "Bring Your Own IP (BYOIP) enables customers to move all or part of their existing publicly routable IPv4 or IPv6 address space to AWS for use with their AWS resources. Customers will continue to own the IP range. Customers can create Elastic IPs from the IPv4 space they bring to AWS and use them with EC2 instances, NAT Gateways, and Network Load Balancers. Customers can also associate up to 5 CIDRs to a VPC from the IPv6 space they bring to AWS. Customers will continue to have access to Amazon-supplied IPs and can choose to use BYOIP Elastic IPs, Amazon-supplied IPs, or both."
     },
     {
-      "Q": "What was XEmacs?",
-      "A": ""
+      "Q": "Why should I use BYOIP?",
+      "A": "You may want to bring your own IP addresses to AWS for the following reasons: IP Reputation: Many customers consider the reputation of their IP addresses to be a strategic asset and want to use those IPs on AWS with their resources. For example, customers who maintain services such as outbound e-mail MTA and have high reputation IPs, can now bring over their IP space and successfully maintain their existing sending success rate. Customer whitelisting: BYOIP also enables customers to move workloads that rely on IP address whitelisting to AWS without the need to re-establish the whitelists with new IP addresses. Hardcoded dependencies: Several customers have IPs hardcoded in devices or have taken architectural dependencies on their IPs. BYOIP enables such customers hassle free migration to AWS. Regulation and compliance: Many customers are required to use certain IPs because of regulation and compliance reasons. They too are unlocked by BYOIP. On-prem IPv6 network policy: Many customers can route only their IPv6 in their on-prem network. These customers are unlocked by BYOIP as they can assign their own IPv6 range to their VPC and choose to route to their on-prem network using internet or Direct Connect."
     },
     {
-      "Q": "How do I set up an init file properly?",
-      "A": ""
+      "Q": "What happens if I release a BYOIP Elastic IP?",
+      "A": "When you release a BYOIP Elastic IP it goes back to the BYOIP IP pool from which it was allocated."
     },
     {
-      "Q": "How do I start using Customize?",
-      "A": ""
+      "Q": "In which AWS Regions is BYOIP available?",
+      "A": "See our documentation for details on BYOIP availability."
     },
     {
-      "Q": "How do I get colors and syntax highlighting on a TTY?",
-      "A": ""
+      "Q": "Can a BYOIP prefix be shared with multiple VPCs in the same account?",
+      "A": "Yes. You can use the BYOIP prefix with any number of VPCs in the same account."
     },
     {
-      "Q": "How do I debug an init file?",
-      "A": ""
+      "Q": "How many IP ranges can I bring via BYOIP?",
+      "A": "You can bring a maximum of five IP ranges to your account."
     },
     {
-      "Q": "How do I make Emacs display the current line (or column) number?",
-      "A": ""
+      "Q": "What is the most specific prefix that I can bring via BYOIP?",
+      "A": "Via BYOIP, the most specific IPv4 prefix you can bring is a /24 IPv4 prefix and a /56 IPv6 prefix. If you intend to advertise your Ipv6 prefix to the internet then most specific IPv6 prefix is /48."
     },
     {
-      "Q": "How can I modify the titlebar to contain the current file name?",
-      "A": ""
+      "Q": "Which RIR prefixes can I use for BYOIP?",
+      "A": "You can use ARIN, RIPE, and APNIC registered prefixes."
     },
     {
-      "Q": "How do I turn on abbrevs by default just in mode mymode ?",
-      "A": ""
+      "Q": "Can I bring a reassigned or reallocated prefix?",
+      "A": "We are not accepting reassigned or reallocated prefixes at this time. IP ranges should be a net type of direct allocation or direct assignment."
     },
     {
-      "Q": "How do I make Emacs use a certain major mode for certain files?",
-      "A": ""
+      "Q": "Can I move a BYOIP prefix from one AWS Region to another?",
+      "A": "Yes. You can do that by de-provisioning the BYOIP prefix from the current region and then provisioning it to the new region."
     },
     {
-      "Q": "How can I replace highlighted text with what I type?",
-      "A": ""
+      "Q": "What is VPC IP Address Manager (IPAM)?",
+      "A": "Amazon VPC IP Address Manager (IPAM) is a managed service that makes it easier for you to plan, track, and monitor IP addresses for your AWS workloads. Using IPAM, you can easily organize IP addresses based on your routing and security needs and set simple business rules to govern IP address assignments. You can also automate IP address assignment to VPCs, eliminating the need to use spreadsheet-based or homegrown IP address planning applications, which can be hard to maintain and time-consuming. IPAM provides a unified operational view, which can be used as your single source of truth, enabling you to quickly and efficiently perform routine IP address management activities such as tracking IP utilization, troubleshooting, and auditing."
     },
     {
-      "Q": "How do I control Emacs’s case-sensitivity when searching/replacing?",
-      "A": ""
+      "Q": "Why should you use IPAM?",
+      "A": "You should use IPAM to make IP address management more efficient. Existing mechanisms that leverage spreadsheets or home-grown tools require manual work, and are error-prone. With IPAM, as an example, you can roll out applications faster as your developers no longer need to wait for the central IP address administration team to allocate IP addresses. You can also detect overlapping IP addresses and fix them before there is a network outage. In addition, you can create alarms for IPAM to notify you if the address pools are nearing exhaustion or if resources fail to comply with allocations rules set on a pool. These are some of the many reasons you should use IPAM."
     },
     {
-      "Q": "How do I search for, delete, or replace unprintable (eight-bit or control) characters?",
-      "A": ""
+      "Q": "What are the key features offered by IPAM?",
+      "A": "AWS IPAM provides the following features: Allocate IP addresses for at-scale networks: IPAM can automate IP address allocations across hundreds of accounts and VPCs based on configurable business rules. Monitor IP usage across your network: IPAM can monitor IP addresses and enables you to get alerts when IPAM detects potential issues such as depleting IP addresses that can stall network’s growth or overlapping IP addresses that can result in erroneous routing. Troubleshoot your network: IPAM can help you quickly identify if connectivity issues are due to IP address misconfigurations or other issues. Audit IP addresses: IPAM automatically retains your IP address monitoring data (up to a maximum of three years). You can use this historical data to do retrospective analysis and audits for your network."
     },
     {
-      "Q": "How do I input a newline character in isearch or query-replace?",
-      "A": ""
+      "Q": "What are the key components of IPAM?",
+      "A": "The following are the key components of IPAM: A scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private space. The public scope is intended for all public space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict. Within a scope, you create IPAM pools. A pool is a collection of contiguous IP address ranges (or CIDRs). IPAM pools enable you to organize your IP addresses according to your routing and security needs. You can have multiple pools within a top-level pool. For example, if you have separate routing and security needs for development and production applications, you can create a pool for each. Within IPAM pools, you allocate CIDRs to AWS resources. An allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool. When you create a VPC and choose an IPAM pool for the VPC’s CIDR, the CIDR is allocated from the CIDR provisioned to the IPAM pool. You can monitor and manage the allocation with IPAM."
     },
     {
-      "Q": "How do I copy text from the kill ring into the search string?",
-      "A": ""
+      "Q": "Does IPAM support Bring Your Own IPs (BYOIPs)?",
+      "A": "Yes. IPAM supports both BYOIPv4 and BYOIPv6 addresses. BYOIP is an EC2 feature that allows you to bring IP addresses owned by you to AWS. With IPAM, you can directly provision and share their IP address blocks across accounts and organization. Existing BYOIP customers using IPv4 can migrate their pools into IPAM to simplify IP management."
     },
     {
-      "Q": "How do I make Emacs wrap words for me?",
-      "A": ""
+      "Q": "Does Amazon Provide Contiguous CIDR Blocks and how do they work with IPAM?",
+      "A": "Yes, Amazon Provides Contiguous IPv6 CIDR blocks for VPC allocation. Contigous CIDR blocks allow you to aggregated CIDRs in a single entry across networking and security constructs like access control lists, route tables, security groups, and firewalls. You can provision Amazon IPv6 CIDRs into a publicly scoped pool, and use all of the IPAM features to manage and monitor IP usage. Allocation of these CIDR blocks start in /52 increments, and larger blocks are available upon request. For example, you can allocate /52 CIDR from Amazon and use IPAM to share across accounts and create VPCs in those accounts."
     },
     {
-      "Q": "How do I turn on auto-fill-mode by default?",
-      "A": ""
+      "Q": "Can you use Amazon Provided Contiguous IPv6 CIDR blocks without IPAM?",
+      "A": "No, Amazon Provided Contiguous IPv6 CIDR blocks are currently only supported in IPAM."
     },
     {
-      "Q": "How do I change load-path ?",
-      "A": ""
+      "Q": "Can I share my IPAM pools with other accounts?",
+      "A": "You can share IPAM pools with other accounts in your AWS Organization using AWS Resource Access Manager (RAM). You can also share IPAM pools with accounts outside of your primary AWS Organization. For example, these accounts can represent another line of business in your company or a managed service hosted by a partner on your behalf, in another AWS Organization."
     },
     {
-      "Q": "How do I use an already running Emacs from another window?",
-      "A": ""
+      "Q": "Can I specify which subnet will use which gateway as its default?",
+      "A": "Yes. You may create a default route for each subnet. The default route can direct traffic to egress the VPC via the Internet gateway, the virtual private gateway, or the NAT gateway."
     },
     {
-      "Q": "How do I make Emacs recognize my compiler’s funny error messages?",
-      "A": ""
+      "Q": "How do I secure Amazon EC2 instances running within my VPC?",
+      "A": "Amazon EC2 security groups can be used to help secure instances within an Amazon VPC. Security groups in a VPC enable you to specify both inbound and outbound network traffic that is allowed to or from each Amazon EC2 instance. Traffic which is not explicitly allowed to or from an instance is automatically denied. In addition to security groups, network traffic entering and exiting each subnet can be allowed or denied via network Access Control Lists (ACLs)."
     },
     {
-      "Q": "How do I change the indentation for switch ?",
-      "A": ""
+      "Q": "What are the differences between security groups in a VPC and network ACLs in a VPC?",
+      "A": "Security groups in a VPC specify which traffic is allowed to or from an Amazon EC2 instance. Network ACLs operate at the subnet level and evaluate traffic entering and exiting a subnet. Network ACLs can be used to set both Allow and Deny rules. Network ACLs do not filter traffic between instances in the same subnet. In addition, network ACLs perform stateless filtering while security groups perform stateful filtering."
     },
     {
-      "Q": "How to customize indentation in C, C ++ , and Java buffers?",
-      "A": ""
+      "Q": "What is the difference between stateful and stateless filtering?",
+      "A": "Stateful filtering tracks the origin of a request and can automatically allow the reply to the request to be returned to the originating computer. For example, a stateful filter that allows inbound traffic to TCP port 80 on a webserver will allow the return traffic, usually on a high numbered port (e.g., destination TCP port 63, 912) to pass through the stateful filter between the client and the webserver. The filtering device maintains a state table that tracks the origin and destination port numbers and IP addresses. Only one rule is required on the filtering device: Allow traffic inbound to the web server on TCP port 80. Stateless filtering, on the other hand, only examines the source or destination IP address and the destination port, ignoring whether the traffic is a new request or a reply to a request. In the above example, two rules would need to be implemented on the filtering device: one rule to allow traffic inbound to the web server on TCP port 80, and another rule to allow outbound traffic from the webserver (TCP port range 49, 152 through 65, 535)."
     },
     {
-      "Q": "How do I make Emacs “typeover” or “overwrite” instead of inserting?",
-      "A": ""
+      "Q": "Can Amazon EC2 instances within a VPC communicate with Amazon EC2 instances not within a VPC?",
+      "A": "Yes. If an Internet gateway has been configured, Amazon VPC traffic bound for Amazon EC2 instances not within a VPC traverses the Internet gateway and then enters the public AWS network to reach the EC2 instance. If an Internet gateway has not been configured, or if the instance is in a subnet configured to route through the virtual private gateway, the traffic traverses the VPN connection, egresses from your datacenter, and then re-enters the public AWS network."
     },
     {
-      "Q": "How do I stop Emacs from beeping on a terminal?",
-      "A": ""
+      "Q": "Can Amazon EC2 instances within a VPC in one region communicate with Amazon EC2 instances within a VPC in another region?",
+      "A": "Yes. Instances in one region can communicate with each other using Inter-Region VPC Peering, public IP addresses, NAT gateway, NAT instances, VPN Connections or Direct Connect connections."
     },
     {
-      "Q": "How do I turn down the bell volume in Emacs running under X?",
-      "A": ""
+      "Q": "Can Amazon EC2 instances within a VPC communicate with Amazon S3?",
+      "A": "Yes. There are multiple options for your resources within a VPC to communicate with Amazon S3. You can use VPC Endpoint for S3, which makes sure all traffic remains within Amazon's network and enables you to apply additional access policies to your Amazon S3 traffic. You can use an Internet gateway to enable Internet access from your VPC and instances in the VPC can communicate with Amazon S3. You can also make all traffic to Amazon S3 traverse the Direct Connect or VPN connection, egress from your datacenter, and then re-enter the public AWS network."
     },
     {
-      "Q": "How do I tell Emacs to automatically indent a new line to the indentation of the previous line?",
-      "A": ""
+      "Q": "Can I monitor the network traffic in my VPC?",
+      "A": "Yes. You can use Amazon VPC traffic mirroring and Amazon VPC flow logs features to monitor the network traffic in your Amazon VPC."
     },
     {
-      "Q": "How do I show which parenthesis matches the one I’m looking at?",
-      "A": ""
+      "Q": "What is Amazon VPC flow logs?",
+      "A": "VPC flow logs is a feature that enables you to capture information about the IP traffic going to and from network interfaces in your VPC. Flow logs data can be published to either Amazon CloudWatch Logs or Amazon S3. You can monitor your VPC flow logs to gain operational visibility about your network dependencies and traffic patterns, detect anomalies and prevent data leakage, or troubleshoot network connectivity and configuration issues. The enriched metadata in flow logs help you gain additional insights about who initiated your TCP connections, and the actual packet-level source and destination for traffic flowing through intermediate layers such as the NAT Gateway. You can also archive your flow logs to meet compliance requirements. To learn more about Amazon VPC flow logs, please refer to the documentation ."
     },
     {
-      "Q": "In C mode, can I show just the lines that will be left after #ifdef commands are handled by the compiler?",
-      "A": ""
+      "Q": "How can I use VPC flow logs?",
+      "A": "You can create a flow log for a VPC, a subnet, or a network interface. If you create a flow log for a subnet or VPC, each network interface in that subnet or VPC is monitored. While creating a flow log subscription, you can choose the metadata fields you wish to capture, the maximum aggregation interval, and your preferred log destination. You can also choose to capture all traffic or only accepted or rejected traffic. You can use tools like CloudWatch Log Insights or CloudWatch Contributor Insights to analyze your VPC flow logs delivered to CloudWatch Logs. You can use tools like Amazon Athena or AWS QuickSight to query and visualize your VPC flow logs delivered to Amazon S3. You can also build a custom downstream application to analyze your logs or use partner solutions such as Splunk, Datadog, Sumo Logic, Cisco StealthWatch, Checkpoint CloudGuard, New Relic etc."
     },
     {
-      "Q": "How do I repeat a command as many times as possible?",
-      "A": ""
+      "Q": "Do VPC flow logs support AWS Transit Gateway?",
+      "A": "Yes, you can create VPC flow log for a Transit Gateway or for an individual Transit Gateway attachment. With this feature Transit Gateway can export detailed information such as source/destination IPs, ports, protocol, traffic counters, timestamps and various metadata for network flows traversing via the Transit Gateway. To learn more about Amazon VPC flow logs support for Transit Gateway, please refer to the documentation."
     },
     {
-      "Q": "What are the valid X resource settings (i.e., stuff in .Xdefaults)?",
-      "A": ""
+      "Q": "Does using Flow Logs impact my network latency or performance?",
+      "A": "Flow log data is collected outside of the path of your network traffic, and therefore does not affect network throughput or latency. You can create or delete flow logs without any risk of impact to network performance."
     },
     {
-      "Q": "How do I execute (“evaluate”) a piece of Emacs Lisp code?",
-      "A": ""
+      "Q": "How much VPC flow logs cost?",
+      "A": "Data ingestion and archival charges for vended logs apply when you publish flow logs to CloudWatch Logs or to Amazon S3. For more information and examples, see Amazon CloudWatch Pricing . You can also track charges from publishing flow logs using cost allocation tags."
     },
     {
-      "Q": "How do I change Emacs’s idea of the TAB character’s length?",
-      "A": ""
+      "Q": "What is Amazon VPC traffic mirroring?",
+      "A": "Amazon VPC traffic mirroring makes it easy for customers to replicate network traffic to and from an Amazon EC2 instance and forward it to out-of-band security and monitoring appliances for use-cases such as content inspection, threat monitoring, and troubleshooting. These appliances can be deployed on an individual EC2 instance or a fleet of instances behind a Network Load Balancer (NLB) with User Datagram Protocol (UDP) listener."
     },
     {
-      "Q": "How do I insert <some text> at the beginning of every line?",
-      "A": ""
+      "Q": "Which resources can be monitored with Amazon VPC traffic mirroring ?",
+      "A": "Traffic mirroring supports network packet captures at the Elastic Network Interface (ENI) level for EC2 instances. Refer to the Traffic Mirroring documentation for the EC2 instances that support Amazon VPC Traffic Mirroring."
     },
     {
-      "Q": "How do I make Emacs behave like this: when I go up or down, the cursor should stay in the same column even if the line is too short?",
-      "A": ""
+      "Q": "What type of appliances are supported with Amazon VPC traffic mirroring?",
+      "A": "Customers can either use open source tools or choose from a wide-range of monitoring solution available on AWS Marketplace. Traffic mirroring allows customers to stream replicated traffic to any network packet collector/broker or analytics tool, without requiring them to install vendor-specific agents."
     },
     {
-      "Q": "How do I tell Emacs to iconify itself?",
-      "A": ""
+      "Q": "How is Amazon VPC traffic mirroring different from Amazon VPC flow logs?",
+      "A": "Amazon VPC flow logs allow customers to collect, store, and analyze network flow logs. The information captured in flow logs includes information about allowed and denied traffic, source and destination IP addresses, ports, protocol number, packet and byte counts, and an action (accept or reject). You can use this feature to troubleshoot connectivity and security issues and to make sure that the network access rules are working as expected. Amazon VPC traffic mirroring, provides deeper insight into network traffic by allowing you to analyze actual traffic content, including payload, and is targeted for use-cases when you need to analyze the actual packets to determine the root cause a performance issue, reverse-engineer a sophisticated network attack, or detect and stop insider abuse or compromised workloads."
     },
     {
-      "Q": "How do I use regexps (regular expressions) in Emacs?",
-      "A": ""
+      "Q": "Within which Amazon EC2 region(s) is Amazon VPC available?",
+      "A": "Amazon VPC is currently available in multiple Availability Zones in all Amazon EC2 regions."
     },
     {
-      "Q": "How do I perform a replace operation across more than one file?",
-      "A": ""
+      "Q": "Can a VPC span multiple Availability Zones?",
+      "A": "Yes."
     },
     {
-      "Q": "Where is the documentation for etags ?",
-      "A": ""
+      "Q": "Can a subnet span Availability Zones?",
+      "A": "No. A subnet must reside within a single Availability Zone."
     },
     {
-      "Q": "How do I disable backup files?",
-      "A": ""
+      "Q": "How do I specify which Availability Zone my Amazon EC2 instances are launched in?",
+      "A": "When you launch an Amazon EC2 instance, you must specify the subnet in which to launch the instance. The instance will be launched in the Availability Zone associated with the specified subnet."
     },
     {
-      "Q": "How do I disable auto-save-mode ?",
-      "A": ""
+      "Q": "How do I determine which Availability Zone my subnets are located in?",
+      "A": "When you create a subnet you must specify the Availability Zone in which to place the subnet. When using the VPC Wizard, you can select the subnet's Availability Zone in the wizard confirmation screen. When using the API or the CLI you can specify the Availability Zone for the subnet as you create the subnet. If you don’t specify an Availability Zone, the default \"No Preference\" option will be selected and the subnet will be created in an available Availability Zone in the region."
     },
     {
-      "Q": "Making Emacs write all auxiliary files somewhere else",
-      "A": ""
+      "Q": "Am I charged for network bandwidth between instances in different subnets?",
+      "A": "If the instances reside in subnets in different Availability Zones, you will be charged $0.01 per GB for data transfer."
     },
     {
-      "Q": "How can I go to a certain line given its number?",
-      "A": ""
+      "Q": "When I call DescribeInstances(), do I see all of my Amazon EC2 instances, including those in EC2-Classic and EC2-VPC?",
+      "A": "Yes. DescribeInstances() will return all running Amazon EC2 instances. You can differentiate EC2-Classic instances from EC2-VPC instances by an entry in the subnet field. If there is a subnet ID listed, the instance is within a VPC."
     },
     {
-      "Q": "How can I create or modify new pull-down menu options?",
-      "A": ""
-    },
-    {
-      "Q": "How do I delete menus and menu options?",
-      "A": ""
-    },
-    {
-      "Q": "How do I turn on syntax highlighting?",
-      "A": ""
-    },
-    {
-      "Q": "How can I force Emacs to scroll only one line when I move past the bottom of the screen?",
-      "A": ""
-    },
-    {
-      "Q": "How can I edit Windows files using Emacs?",
-      "A": ""
-    },
-    {
-      "Q": "How can I tell Emacs to fill paragraphs with a single space after each period?",
-      "A": ""
-    },
-    {
-      "Q": "Why these strange escape sequences from ls from the Shell mode?",
-      "A": ""
-    },
-    {
-      "Q": "How can I start Emacs in full screen?",
-      "A": ""
-    },
-    {
-      "Q": "How can I alleviate the limitations of the Linux console?",
-      "A": ""
-    },
-    {
-      "Q": "Does Emacs have problems with large files?",
-      "A": ""
-    },
-    {
-      "Q": "How do I get rid of ‘ ^M ’ or echoed commands in my shell buffer?",
-      "A": ""
-    },
-    {
-      "Q": "Why do I get an error message when I try to run M-x shell ?",
-      "A": ""
-    },
-    {
-      "Q": "Where is the termcap/terminfo entry for terminal type ‘ emacs ’?",
-      "A": ""
-    },
-    {
-      "Q": "Why does Emacs say ‘ Error in init file ’?",
-      "A": ""
-    },
-    {
-      "Q": "Why does Emacs ignore my X resources (my .Xdefaults file)?",
-      "A": ""
-    },
-    {
-      "Q": "Why don’t my customizations of the frame parameters work?",
-      "A": ""
-    },
-    {
-      "Q": "How do I edit a file with a ‘ $ ’ in its name?",
-      "A": ""
-    },
-    {
-      "Q": "Why does shell mode lose track of the shell’s current directory?",
-      "A": ""
-    },
-    {
-      "Q": "Are there any security risks in Emacs?",
-      "A": ""
-    },
-    {
-      "Q": "Dired says, ‘ no file on this line ’ when I try to do something.",
-      "A": ""
-    },
-    {
-      "Q": "How do I install Emacs?",
-      "A": ""
-    },
-    {
-      "Q": "Where can I get Emacs for macOS, MS Windows, etc?",
-      "A": ""
-    },
-    {
-      "Q": "What should I do if I have trouble building Emacs?",
-      "A": ""
-    },
-    {
-      "Q": "Downloading Emacs",
-      "A": ""
-    },
-    {
-      "Q": "How do I find an Emacs Lisp package that does XXX?",
-      "A": ""
-    },
-    {
-      "Q": "Where can I get Emacs Lisp packages that don’t come with Emacs?",
-      "A": ""
-    },
-    {
-      "Q": "Spell-checkers",
-      "A": ""
-    },
-    {
-      "Q": "Where can I get other up-to-date GNU stuff?",
-      "A": ""
-    },
-    {
-      "Q": "I don’t have enough disk space to install Emacs",
-      "A": ""
-    },
-    {
-      "Q": "How do I bind keys (including function keys) to commands?",
-      "A": ""
-    },
-    {
-      "Q": "Why does Emacs say ‘ Key sequence XXX uses invalid prefix characters ’?",
-      "A": ""
-    },
-    {
-      "Q": "Why doesn’t this [terminal or window-system setup] code work in my init file, but it works just fine after Emacs starts up?",
-      "A": ""
-    },
-    {
-      "Q": "How do I tell what characters or symbols my function or arrow keys emit?",
-      "A": ""
-    },
-    {
-      "Q": "How do I set the X key “translations” for Emacs?",
-      "A": ""
-    },
-    {
-      "Q": "Why does the Backspace key invoke help?",
-      "A": ""
-    },
-    {
-      "Q": "How do I swap two keys?",
-      "A": ""
-    },
-    {
-      "Q": "How do I produce C-XXX with my keyboard?",
-      "A": ""
-    },
-    {
-      "Q": "What if I don’t have a Meta key?",
-      "A": ""
-    },
-    {
-      "Q": "What if I don’t have an Escape key?",
-      "A": ""
-    },
-    {
-      "Q": "Can I make my Compose Character key behave like a Meta key?",
-      "A": ""
-    },
-    {
-      "Q": "How do I bind a combination of modifier key and function key?",
-      "A": ""
-    },
-    {
-      "Q": "Why doesn’t my Meta key work in an xterm window?",
-      "A": ""
-    },
-    {
-      "Q": "Why don’t some keys like C-. work on xterm?",
-      "A": ""
-    },
-    {
-      "Q": "How do I make Emacs display 8-bit characters?",
-      "A": ""
-    },
-    {
-      "Q": "How do I input eight-bit characters?",
-      "A": ""
-    },
-    {
-      "Q": "Where is an Emacs that can handle Semitic (right-to-left) alphabets?",
-      "A": ""
-    },
-    {
-      "Q": "How do I add fonts for use with Emacs?",
-      "A": ""
-    },
-    {
-      "Q": "How do I change the included text prefix in mail/news followups?",
-      "A": ""
-    },
-    {
-      "Q": "How do I save a copy of outgoing mail?",
-      "A": ""
-    },
-    {
-      "Q": "Why doesn’t Emacs expand my aliases when sending mail?",
-      "A": ""
-    },
-    {
-      "Q": "How can I sort the messages in my Rmail folder?",
-      "A": ""
-    },
-    {
-      "Q": "Why does Rmail need to write to /var/spool/mail ?",
-      "A": ""
-    },
-    {
-      "Q": "How can I force Rmail to reply to the sender of a message, but not the other recipients?",
-      "A": ""
-    },
-    {
-      "Q": "How do I make Emacs automatically start my mail/news reader?",
-      "A": ""
-    },
-    {
-      "Q": "How do I read news under Emacs?",
-      "A": ""
-    },
-    {
-      "Q": "How do I make Gnus faster?",
-      "A": ""
-    },
-    {
-      "Q": "How do I catch up all newsgroups in Gnus?",
-      "A": ""
+      "Q": "When I call DescribeVolumes(), do I see all of my Amazon EBS volumes, including those in EC2-Classic and EC2-VPC?",
+      "A": "Yes. DescribeVolumes() will return all your EBS volumes."
     }
   ]
 }
